@@ -33,40 +33,49 @@
     </div>
 </nav> -->
 
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/gsap.min.js"></script>
+</head>
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="#">
             <img src="assets/img/hlogo.png" alt="" height="24" class="d-inline-block align-text-top">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-collapse collapse justify-content-between align-items-center w-100"
             id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto text-md-center text-left">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Home</a>
+                <li class="nav-item active">
+                    <a class="nav-item nav-link" routerLink="/welcome" routerLinkActive="active">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Game</a>
+                    <a class="nav-item nav-link" routerLink="/aboutgame" routerLinkActive="active">Juego</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About us</a>
-                </li>
-                <li>
-                <a class="nav-link" href="#">Ranking</a>
+                    <a class="nav-item nav-link" routerLink="/aboutus" routerLinkActive="active">Sobre nosotros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Comments</a>
+                    <a class="nav-item nav-link" routerLink="/ranking_results" routerLinkActive="active">Ranking</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Technologies</a>
+                    <a class="nav-item nav-link" routerLink="/comments_feedback"
+                        routerLinkActive="active">Comentarios</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Download</a>
+                    <a class="nav-item nav-link" routerLink="/technologies" routerLinkActive="active">Tecnologias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link" routerLink="/download" routerLinkActive="active">Descargar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link" routerLink="/login" routerLinkActive="active">Login</a>
                 </li>
             </ul>
             <!-- <ul class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap">
@@ -88,3 +97,18 @@
     <!--Charge each component enrouted-->
     <router-outlet></router-outlet>
 </div>
+
+<script>
+  document.addEventListener("mousemove", function (e) {
+            var width = window.innerWidth,
+                height = window.innerHeight,
+                positionX = (e.clientX / width) - 0.55,
+                positionY = (e.clientY / height) - 0.55;
+
+            gsap.to(".image_box img", {
+                rotationY: positionX * 90,
+                rotationX: positionY * 90,
+                ease: "none"
+            })
+        })
+</script>
