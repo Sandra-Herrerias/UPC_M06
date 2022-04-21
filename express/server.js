@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 
+var mysql = require('mysql');
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -33,10 +34,10 @@ app.delete('/deleteProduct/:id', function (req, res) {
     connection.end();
 })
 
-app.get('/getMangas', function (req, res) {
+app.get('/getUsers', function (req, res) {
     var connection = mysql.createConnection({
         host: 'localhost',
-        database: 'm06_pt2',
+        database: 'campeonato',
         user: 'root',
         password: ''
     });
@@ -48,8 +49,9 @@ app.get('/getMangas', function (req, res) {
         // console.log('Connected as id ' + connection.threadId);
     });
 
-    connection.query('select * from products where type like ?', ["manga"], function (error, results, field) {
+    connection.query('select * from comentarios', function (error, results, field) {
         if (error) throw error;
+        console.log(JSON.stringify(results));
         res.send(JSON.stringify(results));
         console.log('enviado!')
     });
