@@ -7,6 +7,9 @@
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.2
 
+DROP DATABASE IF EXISTS upc_explodingkittens;
+CREATE DATABASE upc_explodingkittens;
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
