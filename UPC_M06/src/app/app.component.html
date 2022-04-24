@@ -1,114 +1,75 @@
-<!--Routing Menu-->
-<!-- <nav id="navBarStyle" class="navbar navbar-expand-lg navbar navbar-light bg-white sticky">
-    <a id="titles" class="navbar-brand navTitle" href="/">
-        <img src="https://i.ibb.co/T4SZmfG/pngegg.png" width="40" height="40" class="d-inline-block align-top" alt="logo"> Exploding Kittens
-    </a>
-    <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
-        <ul id="barNavegador" class="navbar-nav ">
-            <li class="nav-item active">
-                <a class="nav-item nav-link" routerLink="/welcome" routerLinkActive="active">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-item nav-link" routerLink="/aboutgame" routerLinkActive="active">Juego</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-item nav-link" routerLink="/aboutus" routerLinkActive="active">Sobre nosotros</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-item nav-link" routerLink="/ranking_results" routerLinkActive="active">Ranking</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-item nav-link" routerLink="/comments_feedback" routerLinkActive="active">Comentarios</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-item nav-link" routerLink="/technologies" routerLinkActive="active">Tecnologias</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-item nav-link" routerLink="/download" routerLinkActive="active">Descargar</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-item nav-link" routerLink="/login" routerLinkActive="active">Login</a>
-            </li>
-        </ul>
-    </div>
-</nav> -->
+<!DOCTYPE html>
+<html lang="es">
 
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/gsap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/gsap.min.js"></script>
+    <!-- <script src="../assets/js/index.js"></script> -->
+    
 </head>
 
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="assets/img/hlogo.png" alt="" height="24" class="d-inline-block align-text-top">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse collapse justify-content-between align-items-center w-100"
-            id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto text-md-center text-left">
-                <li class="nav-item active">
-                    <a class="nav-item nav-link" routerLink="/welcome" routerLinkActive="active">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-item nav-link" routerLink="/aboutgame" routerLinkActive="active">Juego</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-item nav-link" routerLink="/aboutus" routerLinkActive="active">Sobre nosotros</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-item nav-link" routerLink="/ranking_results" routerLinkActive="active">Ranking</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-item nav-link" routerLink="/comments_feedback"
-                        routerLinkActive="active">Comentarios</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-item nav-link" routerLink="/technologies" routerLinkActive="active">Tecnologias</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-item nav-link" routerLink="/download" routerLinkActive="active">Descargar</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-item nav-link" routerLink="/login" routerLinkActive="active">Login</a>
-                </li>
-            </ul>
-            <!-- <ul class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap">
-                <li class="nav-item"><a class="nav-link" href=""><i class="fa fa-facebook mr-1"></i></a> </li>
-                <li class="nav-item"><a class="nav-link" href=""><i class="fa fa-twitter"></i></a> </li>
-            </ul> -->
-            <form class="d-flex">
-                <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
-                <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
-                <button type="button" class="btn btn-danger">Login</button>
-            </form>
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="assets/img/hlogo.png" alt="" height="24" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse justify-content-between align-items-center w-100"
+                id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto text-md-center text-left">
+                    <li class="nav-item active">
+                        <a class="nav-item nav-link" routerLink="/welcome" routerLinkActive="active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" routerLink="/aboutgame" routerLinkActive="active">Juego</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" routerLink="/aboutus" routerLinkActive="active">Sobre nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" routerLink="/ranking_results" routerLinkActive="active">Ranking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" routerLink="/comments_feedback"
+                            routerLinkActive="active">Comentarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" routerLink="/technologies"
+                            routerLinkActive="active">Tecnologias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" routerLink="/download" routerLinkActive="active">Descargar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+                    </li>
+                </ul>
+                <!-- <ul class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap">
+                    <li class="nav-item"><a class="nav-link" href=""><i class="fa fa-facebook mr-1"></i></a> </li>
+                    <li class="nav-item"><a class="nav-link" href=""><i class="fa fa-twitter"></i></a> </li>
+                </ul> -->
+                <form class="d-flex">
+                    <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+                    <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+                    <button type="button" class="btn btn-danger">Login</button>
+                </form>
+            </div>
         </div>
-    </div>
-</nav>
-
-<!--<a routerLink="/admin_comments"></a>-->
-
-<div>
+    </nav>
     <!--Charge each component enrouted-->
     <router-outlet></router-outlet>
-</div>
+</body>
 
-<script>
-  document.addEventListener("mousemove", function (e) {
-            var width = window.innerWidth,
-                height = window.innerHeight,
-                positionX = (e.clientX / width) - 0.55,
-                positionY = (e.clientY / height) - 0.55;
+</html>
 
-            gsap.to(".image_box img", {
-                rotationY: positionX * 90,
-                rotationX: positionY * 90,
-                ease: "none"
-            })
-        })
-</script>
+
+
+<!--<a routerLink="/admin_comments"></a>-->

@@ -11,9 +11,9 @@ export class HomeComponent implements OnInit {
   constructor(private communicatorService : CommunicatorService) { }
 
   ngOnInit(): void {
-    this.communicatorService.getData().subscribe(result => {
-      console.log(result);
-    })
+    // this.communicatorService.getData().subscribe(result => {
+    //   console.log(result);
+    // })
   }
 
 }
