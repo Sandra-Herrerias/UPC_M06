@@ -9,8 +9,11 @@
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Nombre de usuario
                 </label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nombre de usuario*"
-                    required="">
+                <input type="text" class="form-control" name="user" [(ngModel)]="username" #user="ngModel"
+                    placeholder="Usuario*" required>
+                <div *ngIf="user.invalid && user.dirty" class="invalid-feedback">
+                    Name Type is required
+                </div>
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput2" class="form-label">Contraseña</label>
