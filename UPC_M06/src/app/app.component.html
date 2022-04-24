@@ -5,10 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script> -->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/gsap.min.js"></script>
-    <!-- <script src="../assets/js/index.js"></script> -->
-    
+
 </head>
 
 <body>
@@ -66,6 +72,35 @@
     </nav>
     <!--Charge each component enrouted-->
     <router-outlet></router-outlet>
+    <nav class="navbar-dark mt-auto bg-dark text-white">
+        <br>
+        <br>
+        <div class=" d-flex flex-column">
+            <img class="mx-auto" src="assets/img/hlogo.png" width="170">
+            <br>
+            <h4 class="text-center">Are you ready?</h4>
+            <br>
+            <div class="mx-auto">
+                <button type="button" class="btn btn-danger">Login</button>
+            </div>
+        </div>
+        <br>
+        <div class="d-flex justify-content-center">
+            <a class="nav-link active text-white" href="#">Home</a>
+            <a class="nav-link active text-white" href="#">Juego</a>
+            <a class="nav-link active text-white" href="#">Sobre nosotros</a>
+            <a class="nav-link active text-white" href="#">Ranking</a>
+            <a class="nav-link active text-white" href="#">Comentarios</a>
+            <a class="nav-link active text-white" href="#">Tecnologias</a>
+            <a class="nav-link active text-white" href="#">Descargar</a>
+            <a class="nav-link active text-white" href="#">Login</a>
+        </div>
+        <div class="text-center text-muted fs-6 mt-3">
+            Copyright © 2022. Exploding Kittens. All rights reserved.
+        </div>
+        <br>
+        <br>
+    </nav>
 </body>
 
 </html>
