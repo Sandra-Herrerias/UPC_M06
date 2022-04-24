@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-download',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DownloadComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+ 
+  }
 
   ngOnInit(): void {
   }

@@ -17,8 +17,8 @@
 
 </head>
 
-<body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+<body class="d-flex flex-column min-vh-100">
+    <nav *ngIf="(data != '/login' && data != '/register')" class="navbar  navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="assets/img/hlogo.png" alt="" height="24" class="d-inline-block align-text-top">
@@ -31,7 +31,7 @@
             <div class="navbar-collapse collapse justify-content-between align-items-center w-100"
                 id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto text-md-center text-left">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-item nav-link" routerLink="/welcome" routerLinkActive="active">Home</a>
                     </li>
                     <li class="nav-item">
@@ -54,9 +54,7 @@
                     <li class="nav-item">
                         <a class="nav-item nav-link" routerLink="/download" routerLinkActive="active">Descargar</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-item nav-link" routerLink="/login" routerLinkActive="active">Login</a>
-                    </li>
+                  
                 </ul>
                 <!-- <ul class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap">
                     <li class="nav-item"><a class="nav-link" href=""><i class="fa fa-facebook mr-1"></i></a> </li>
@@ -65,23 +63,26 @@
                 <form class="d-flex">
                     <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
                     <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
-                    <button type="button" class="btn btn-danger">Login</button>
+                    <button type="button" class="btn btn-danger">
+                        <a class="text-white text-decoration-none" href="/login">Login</a></button>
                 </form>
             </div>
         </div>
     </nav>
     <!--Charge each component enrouted-->
     <router-outlet></router-outlet>
-    <nav class="navbar-dark mt-auto bg-dark text-white">
+
+    <nav *ngIf="(data != '/login' && data != '/register')" class="navbar-dark mt-auto bg-dark text-white">
         <br>
         <br>
         <div class=" d-flex flex-column">
             <img class="mx-auto" src="assets/img/hlogo.png" width="170">
             <br>
-            <h4 class="text-center">Are you ready?</h4>
+            <h4 class="text-center">¿Estás listo?</h4>
             <br>
             <div class="mx-auto">
-                <button type="button" class="btn btn-danger">Login</button>
+                <button type="button" class="btn btn-danger"><a class="text-white text-decoration-none"
+                        href="/register">Registrarte</a></button>
             </div>
         </div>
         <br>

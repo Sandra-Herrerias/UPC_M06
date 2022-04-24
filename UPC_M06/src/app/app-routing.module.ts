@@ -9,46 +9,50 @@ import { CommentsFeedbackComponent } from './components/comments-feedback/commen
 import { DownloadComponent } from './components/download/download.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   {
-    path:'welcome',
-    component:HomeComponent
+    path: 'welcome',
+    component: HomeComponent
   },
   {
-    path:'aboutgame',
+    path: 'aboutgame',
     component: AboutgameComponent
   },
   {
-    path:'aboutus',
+    path: 'aboutus',
     component: AboutusComponent
   },
   {
-    path:'admin_comments',
+    path: 'admin_comments',
     component: AdminCommentsComponent
   },
   {
-    path:'comments_feedback',
+    path: 'comments_feedback',
     component: CommentsFeedbackComponent
   },
   {
-    path:'download',
+    path: 'download',
     component: DownloadComponent
   },
   {
-    path:'ranking_results',
+    path: 'ranking_results',
     component: RankingResultsComponent
   },
   {
-    path:'technologies',
+    path: 'technologies',
     component: TechnologiesComponent
   },
   {
-    path:'login',
+    path: 'login',
     component: LoginComponent
+  }, {
+    path: 'register',
+    component: RegisterComponent
   },
   {//default
-    path:'**',
+    path: '**',
     redirectTo: 'welcome'
   }
 
