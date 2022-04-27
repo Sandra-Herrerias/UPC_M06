@@ -13,10 +13,10 @@ export class CommentsFeedbackComponent implements OnInit {
   constructor(private communicatorService: CommunicatorService) { }
 
   ngOnInit(): void {
-    this.communicatorService.getData().subscribe(result => {
-      console.log(result);
-      this.comentarios.push(result);
-    })
+    // this.communicatorService.getData().subscribe(result => {
+    //   console.log(result);
+    //   this.comentarios.push(result);
+    // })
   }
 
 }
