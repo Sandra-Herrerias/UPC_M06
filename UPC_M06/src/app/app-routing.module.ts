@@ -10,7 +10,9 @@ import { DownloadComponent } from './components/download/download.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { GuardroutesGuard } from './security/guardroutes.guard';
 
+// una o varias poner el canActivate y poderlo derivar
 const routes: Routes = [
   {
     path: 'welcome',
@@ -26,7 +28,8 @@ const routes: Routes = [
   },
   {
     path: 'admin_comments',
-    component: AdminCommentsComponent
+    component: AdminCommentsComponent,
+    canActivate:[GuardroutesGuard]
   },
   {
     path: 'comments_feedback',
@@ -47,7 +50,8 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
-  }, {
+  }, 
+  {
     path: 'register',
     component: RegisterComponent
   },
@@ -55,7 +59,6 @@ const routes: Routes = [
     path: '**',
     redirectTo: 'welcome'
   }
-
 ];
 
 @NgModule({

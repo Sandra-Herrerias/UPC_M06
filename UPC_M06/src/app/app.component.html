@@ -16,7 +16,8 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    <nav *ngIf="(data != '/login' && data != '/register')" class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <nav *ngIf="(data != '/login' && data != '/register')"
+        class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="assets/img/hlogo.png" alt="" height="24" class="d-inline-block align-text-top">
@@ -52,7 +53,7 @@
                     <li class="nav-item">
                         <a class="nav-item nav-link" routerLink="/download" routerLinkActive="active">Descargar</a>
                     </li>
-                  
+
                 </ul>
                 <!-- <ul class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap">
                     <li class="nav-item"><a class="nav-link" href=""><i class="fa fa-facebook mr-1"></i></a> </li>
@@ -94,6 +95,18 @@
             <a class="nav-link active text-white" href="#">Descargar</a>
             <a class="nav-link active text-white" href="#">Login</a>
         </div>
+
+        <!-- <div class="row row-cols-8 container">
+            <div class="col">Column</div>
+            <div class="col">Column</div>
+            <div class="col">Column</div>
+            <div class="col">Column</div>
+            <div class="col">Column</div>
+            <div class="col">Column</div>
+            <div class="col">Column</div>
+            <div class="col">Column</div>
+        </div> -->
+
         <div class="text-center text-muted fs-6 mt-3">
             Copyright © 2022. Exploding Kittens. All rights reserved.
         </div>

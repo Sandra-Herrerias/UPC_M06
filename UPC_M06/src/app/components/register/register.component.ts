@@ -13,15 +13,17 @@ export class RegisterComponent implements OnInit {
   email: string = "";
   password: string = "";
 
-  constructor(private communicatorService: CommunicatorService) { }
+  constructor(private communicatorService: CommunicatorService) {
+    
+   }
 
   ngOnInit(): void {
   }
 
   register(): void {
-    this.communicatorService.addUser(new User(this.username, this.email, this.password)).subscribe(result => {
-      console.log(result);
-      // this.comentarios.push(result);
-    })
+    // this.communicatorService.addUser(new User(this.username, this.email, this.password)).subscribe(result => {
+    //   // this.comentarios.push(result);
+    // })
+    console.log(new User(this.username, this.email, this.password));
   }
 }

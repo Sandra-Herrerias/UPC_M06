@@ -1,6 +1,6 @@
 <div class="row m-0 vh-100">
     <div class="col p-0 bg-light d-flex justify-content-center align-items-center flex-column w-100">
-        <form class="w-75" action="#">
+        <form [formGroup]="loginForm" class="w-75" action="#">
             <p class="align-self-start">¡Bienvenido de nuevo!
             </p>
             <h1 class="align-self-start">Ingrese a su cuenta
@@ -9,11 +9,17 @@
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Nombre de usuario
                 </label>
-                <input type="text" class="form-control" name="user" [(ngModel)]="username" #user="ngModel"
-                    placeholder="Usuario*" required>
-                <div *ngIf="user.invalid && user.dirty" class="invalid-feedback">
+                <!-- <input type="text" class="form-control" id="usuari" name="user" [(ngModel)]="username" #user="ngModel" -->
+                <!-- placeholder="Usuario*" formControlName="usuari" required> -->
+                <input type="text" class="form-control" id="usuari" placeholder="Usuario*" formControlName="usuari"
+                    required>
+                <!-- <div *ngIf="user.invalid && user.dirty" class="invalid-feedback">
                     Name Type is required
-                </div>
+                </div> -->
+                <label *ngIf="loginForm.get('usuari')?.errors?.['required'] && loginForm.get('usuari')?.dirty" class="error">username is invalido</label>
+                <label *ngIf="loginForm.get('usuari')?.errors?.['minlength'] && loginForm.get('usuari')?.dirty" class="error">username at least 3 character</label>
+                <label *ngIf="loginForm.get('usuari')?.errors?.['maxlength'] && loginForm.get('usuari')?.dirty" class="error">username maxlength 10</label>
+
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput2" class="form-label">Contraseña</label>
