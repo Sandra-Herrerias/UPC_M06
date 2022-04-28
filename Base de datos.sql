@@ -30,61 +30,61 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `comentarios`
 --
 
-CREATE TABLE `comentarios` (
-  `id_comentario` int(11) NOT NULL,
-  `id_jugador` int(11) NOT NULL,
-  `comentario` varchar(300) NOT NULL,
-  `fecha` date NOT NULL DEFAULT current_timestamp()
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `id_player` int(11) NOT NULL,
+  `comment` varchar(300) NOT NULL,
+ `created_at` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `comentarios`
 --
 
-INSERT INTO `comentarios` (`id_comentario`, `id_jugador`, `comentario`, `fecha`) VALUES
+INSERT INTO `comments` (`id`, `id_player`, `comment`, `created_at`) VALUES
 (1, 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non dignissim justo, iaculis ullamcorper ligula. Nulla facilisi. Duis viverra lectus at maximus varius. Suspendisse tincidunt tincidunt tortor, quis pulvinar dolor varius eu. Aenean et blandit justo. Sed nec ligula justo. Nunc sodale', '2022-04-21');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `jugadores`
+-- Estructura de tabla para la tabla `players`
 --
 
-CREATE TABLE `jugadores` (
-  `Id` int(11) NOT NULL,
+CREATE TABLE `players` (
+  `id` int(11) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `Contrasena` varchar(40) NOT NULL,
-  `rol` enum('admin','jugador') NOT NULL DEFAULT 'jugador'
+  `password` varchar(40) NOT NULL,
+  `role` enum('admin','player') NOT NULL DEFAULT 'player'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `jugadores`
+-- Volcado de datos para la tabla `players`
 --
 
-INSERT INTO `jugadores` (`Id`, `email`, `Contrasena`, `rol`) VALUES
-(1, 'Juan', 'd7f080b6a24c541cfcd8241012460afb1a800a4c', 'jugador'),
-(2, 'Maria', 'acfc263082190360dce09f701f19b17f1042c22d', 'jugador'),
-(3, 'Pedro', '6ee711a10b67ff90bf67b04534e28307ffcc0ada', 'jugador'),
-(4, 'Luis', '70f106fd19de33baf34bc6866b5f76c9b5803978', 'jugador'),
-(5, 'Julia', '18d5ef443335f1cb23a43ca2ba567f275e99bf83', 'jugador');
+INSERT INTO `players` (`id`, `email`, `password`, `role`) VALUES
+(1, 'Juan', 'd7f080b6a24c541cfcd8241012460afb1a800a4c', 'player'),
+(2, 'Maria', 'acfc263082190360dce09f701f19b17f1042c22d', 'player'),
+(3, 'Pedro', '6ee711a10b67ff90bf67b04534e28307ffcc0ada', 'player'),
+(4, 'Luis', '70f106fd19de33baf34bc6866b5f76c9b5803978', 'player'),
+(5, 'Julia', '18d5ef443335f1cb23a43ca2ba567f275e99bf83', 'player');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `participacion`
+-- Estructura de tabla para la tabla `participation`
 --
 
-CREATE TABLE `participacion` (
-  `IdP` int(11) NOT NULL,
-  `IdJ` int(11) NOT NULL,
-  `Posicion` int(11) NOT NULL
+CREATE TABLE `participation` (
+  `idP` int(11) NOT NULL,
+  `idJ` int(11) NOT NULL,
+  `position` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `participacion`
+-- Volcado de datos para la tabla `participation`
 --
 
-INSERT INTO `participacion` (`IdP`, `IdJ`, `Posicion`) VALUES
+INSERT INTO `participation` (`idP`, `idJ`, `position`) VALUES
 (1, 3, 4),
 (1, 4, 3),
 (1, 2, 2),
@@ -95,21 +95,21 @@ INSERT INTO `participacion` (`IdP`, `IdJ`, `Posicion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `partidas`
+-- Estructura de tabla para la tabla `games`
 --
 
-CREATE TABLE `partidas` (
-  `Id` int(11) NOT NULL,
-  `FechaInicio` datetime NOT NULL,
-  `FechaFinal` datetime NOT NULL,
-  `Duracion` time GENERATED ALWAYS AS (timediff(`FechaFinal`,`FechaInicio`)) VIRTUAL
+CREATE TABLE `games` (
+  `id` int(11) NOT NULL,
+  `initial_date` datetime NOT NULL,
+  `final_date` datetime NOT NULL,
+  `duration` time GENERATED ALWAYS AS (timediff(`final_date`,`initial_date`)) VIRTUAL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `partidas`
+-- Volcado de datos para la tabla `games`
 --
 
-INSERT INTO `partidas` (`Id`, `FechaInicio`, `FechaFinal`) VALUES
+INSERT INTO `games` (`id`, `initial_date`, `final_date`) VALUES
 (1, '2022-01-14 20:20:00', '2022-01-14 20:25:00'),
 (2, '2021-12-12 20:20:00', '2021-12-12 20:30:00'),
 (3, '2021-12-06 20:20:00', '2021-12-07 23:20:00');
@@ -119,63 +119,63 @@ INSERT INTO `partidas` (`Id`, `FechaInicio`, `FechaFinal`) VALUES
 --
 
 --
--- Indices de la tabla `comentarios`
+-- Indices de la tabla `comments`
 --
-ALTER TABLE `comentarios`
-  ADD PRIMARY KEY (`id_comentario`),
-  ADD KEY `id_jugador` (`id_jugador`);
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_player` (`id_player`);
 
 --
--- Indices de la tabla `jugadores`
+-- Indices de la tabla `players`
 --
-ALTER TABLE `jugadores`
-  ADD PRIMARY KEY (`Id`);
+ALTER TABLE `players`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `participacion`
+-- Indices de la tabla `participation`
 --
-ALTER TABLE `participacion`
-  ADD KEY `IdP` (`IdP`),
-  ADD KEY `IdJ` (`IdJ`);
+ALTER TABLE `participation`
+  ADD KEY `idP` (`idP`),
+  ADD KEY `idJ` (`idJ`);
 
 --
--- Indices de la tabla `partidas`
+-- Indices de la tabla `games`
 --
-ALTER TABLE `partidas`
-  ADD PRIMARY KEY (`Id`);
+ALTER TABLE `games`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `comentarios`
+-- AUTO_INCREMENT de la tabla `comments`
 --
-ALTER TABLE `comentarios`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `jugadores`
+-- AUTO_INCREMENT de la tabla `players`
 --
-ALTER TABLE `jugadores`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `players`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `comentarios`
+-- Filtros para la tabla `comments`
 --
-ALTER TABLE `comentarios`
-  ADD CONSTRAINT `comentarios_ibfk_1` FOREIGN KEY (`id_jugador`) REFERENCES `jugadores` (`Id`);
+ALTER TABLE `comments`
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`id_player`) REFERENCES `players` (`id`);
 
 --
--- Filtros para la tabla `participacion`
+-- Filtros para la tabla `participation`
 --
-ALTER TABLE `participacion`
-  ADD CONSTRAINT `participacion_ibfk_1` FOREIGN KEY (`IdP`) REFERENCES `partidas` (`Id`),
-  ADD CONSTRAINT `participacion_ibfk_2` FOREIGN KEY (`IdJ`) REFERENCES `jugadores` (`Id`);
+ALTER TABLE `participation`
+  ADD CONSTRAINT `participation_ibfk_1` FOREIGN KEY (`idP`) REFERENCES `games` (`id`),
+  ADD CONSTRAINT `participation_ibfk_2` FOREIGN KEY (`idJ`) REFERENCES `players` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
