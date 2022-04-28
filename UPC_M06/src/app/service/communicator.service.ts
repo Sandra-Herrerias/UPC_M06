@@ -63,8 +63,6 @@ export class CommunicatorService {
   logout(): void {
     localStorage.removeItem("usuari");
 
-
-
     // this usuariSubject (json.parse(null!))
     // this.usuariSubject.next(json.parse(null!))
   }
