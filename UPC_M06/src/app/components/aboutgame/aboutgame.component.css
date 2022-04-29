@@ -1,18 +1,36 @@
 #tipos-cartas > .col >  a{
     font-family: sans-serif;
     color: white;
-} 
-
-#tipos-cartas > .col >  a:hover{
+ }
+  
+ #tipos-cartas > .col >  a:hover{
     color: #404040;
     cursor: pointer;
-} 
-
-#img-titulo{
-    position: relative;
-    bottom: 145px;
-}
-
-p{
+ }
+  
+ #img-titulo{
+    position: absolute;
+    bottom: -53px;
+ }
+  
+ @media (max-width: 575.98px) {
+    #img-titulo{
+        height: 110px;
+    }
+ }
+  
+ p{
     color: white;
-}
+ }
+  
+ /* #cartas > .col > img{
+  height: auto;
+  width: 314.5px;
+ } */
+  
+  
+ #cartas > .col > img{
+    height: auto;
+    width: 157.25px;
+  }
+ 

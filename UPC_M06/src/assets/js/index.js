@@ -36,4 +36,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+      gsap.to('#img-titulo', {
+        duration: 2.5,
+        ease: "power2.out",
+        x: 300
+     });
 });
