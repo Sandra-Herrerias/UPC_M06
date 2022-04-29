@@ -1,0 +1,62 @@
+
+
+.card-text{
+  color: black;
+}
+
+.card{
+  width: 16rem;
+  border-radius: 300;
+  border-color: black;
+  
+}
+
+.card > img{
+  height: auto;
+  width: 314.5;
+}
+
+/* .card{
+  float: none;
+} */
+
+p{
+    color: white;
+}
+
+.card-body > a {
+  color: #590B0B;
+
+  /* float: right; */
+}
+
+
+
+
+
+/* efecto de flip card*/
+
+.carta-box {
+    width: 256px;
+    height: 576px;
+    position: relative;
+    perspective: 1000px;
+  }
+  
+  .carta-box:hover .carta {
+      transform: rotateY(180deg);
+  }
+  
+  .carta {
+    transform-style: preserve-3d;
+    transition: all 0.5s linear;
+  }
+  
+  .cara {
+    position: absolute;
+    backface-visibility: hidden;
+  }
+  
+  .cara.detras {
+    transform: rotateY(180deg);
+  }
