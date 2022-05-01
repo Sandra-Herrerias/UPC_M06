@@ -15,7 +15,7 @@ import { GuardroutesGuard } from './security/guardroutes.guard';
 // una o varias poner el canActivate y poderlo derivar
 const routes: Routes = [
   {
-    path: 'welcome',
+    path: 'home',
     component: HomeComponent
   },
   {
@@ -57,7 +57,7 @@ const routes: Routes = [
   },
   {//default
     path: '**',
-    redirectTo: 'welcome'
+    redirectTo: 'home'
   }
 ];
 

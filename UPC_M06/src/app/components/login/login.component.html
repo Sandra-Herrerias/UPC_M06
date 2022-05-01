@@ -7,36 +7,30 @@
             </h1>
             <br>
             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Nombre de usuario
+                <label for="exampleFormControlInput1" class="form-label">Correo electrónico
                 </label>
                 <!-- <input type="text" class="form-control" id="usuari" name="user" [(ngModel)]="username" #user="ngModel" -->
                 <!-- placeholder="Usuario*" formControlName="usuari" required> -->
-                <input type="text" class="form-control" id="usuari" placeholder="Usuario*" formControlName="usuari"
-                    required>
-                <!-- <div *ngIf="user.invalid && user.dirty" class="invalid-feedback">
-                    Name Type is required
-                </div> -->
-                <label *ngIf="loginForm.get('usuari')?.errors?.['required'] && loginForm.get('usuari')?.dirty" class="error">username is invalido</label>
-                <label *ngIf="loginForm.get('usuari')?.errors?.['minlength'] && loginForm.get('usuari')?.dirty" class="error">username at least 3 character</label>
-                <label *ngIf="loginForm.get('usuari')?.errors?.['maxlength'] && loginForm.get('usuari')?.dirty" class="error">username maxlength 10</label>
-
+                <input type="email" value="Juan@gmail.com" class="form-control" id="usuari" placeholder="Usuario*"
+                    formControlName="usuari" required>
+                <label *ngIf="loginForm.get('usuari')?.errors?.['required'] && loginForm.get('usuari')?.dirty">No es
+                    válido</label>
+                <label *ngIf="loginForm.get('usuari')?.errors?.['email'] && loginForm.get('usuari')?.dirty">Email no
+                    válido</label>
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput2" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="exampleFormControlInput2" placeholder="Contraseña*"
-                    required="">
+                <input type="password" id="password" value="juan" formControlName="password" class="form-control"
+                    placeholder="Contraseña*" required>
+                <label
+                    *ngIf="loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.dirty">Password
+                    no es válido</label>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Recordarme
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <button type="button" class="btn btn-danger mt-3">Iniciar sesión</button>
+
+            <div *ngIf="message" class="mb-3 text-danger">{{message}}</div>
+
+            <button type="button" [disabled]="loginForm.invalid" (click)="login()" class="btn btn-danger mt-3">Iniciar
+                sesión</button>
         </form>
     </div>
     <div class="col p-0 text-center d-flex justify-content-center align-items-center login">

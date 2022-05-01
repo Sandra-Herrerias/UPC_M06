@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../model/user';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Player } from '../model/player';
+import { catchError, map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -8,7 +11,8 @@ import { User } from '../model/user';
 })
 export class CommunicatorService {
 
-
+  private userSubject: BehaviorSubject<Player>;
+  public user: Observable<Player>;//part public del Behabiour Subject
   // Cuando te logueas va al servidor, est consulta l bbdd y le retorna datos.
   // Interceptor tiene que darse cuenta si ha dado exito y si sí, debe notificar el sí
   // el guard por ejemplo lo necesita
@@ -36,12 +40,28 @@ export class CommunicatorService {
 
   constructor(private http: HttpClient) {
     // this.getData();
-
+    this.userSubject = new BehaviorSubject<Player>(JSON.parse(localStorage.getItem('player')!));//estat inicial del BehaviorSubject
+    this.user = this.userSubject.asObservable();////part public del Behabiour Subject que s'hi actualitza
+    // console.log(this.user.value);
   }
 
-  public usuariData(): User | any {
+  login(player: Player): Observable<Player> {
+    return this.http.post<Player>("http://localhost:3000/login", player, { responseType: "json" }).pipe(
+      map(res => {
+        // console.log(res);
+        if (res) {
+          const player: Player = Object.assign(new Player(), res);
+          localStorage.setItem('player', JSON.stringify(player));
+          this.userSubject.next(player);
+        }
+        return res;
+      })
+    );
+  }
+
+  public usuariData(): Player | any {
     // return this.usuariSubject;
-    return null;
+    return this.userSubject.value;
   }
 
   getComments() {
@@ -60,30 +80,31 @@ export class CommunicatorService {
   }
 
   logout(): void {
-    localStorage.removeItem("usuari");
-
-    // this usuariSubject (json.parse(null!))
-    // this.usuariSubject.next(json.parse(null!))
+    localStorage.removeItem("player");
+    this.userSubject.next(JSON.parse(null!));
+    window.location.reload();
   }
 
-  getRanking(){
+
+
+  getRanking() {
     return this.http.get("http://localhost:3000/getRanking",
-    {
-      responseType: "json"
-    });
+      {
+        responseType: "json"
+      });
   }
 
-  addComment(info: any){
+  addComment(info: any) {
     return this.http.post("http://localhost:3000/addComment",
-    info,
-    {responseType: "json"});
+      info,
+      { responseType: "json" });
 
   }
 
 
-  findByNickname(info: any){
+  findByNickname(info: any) {
     return this.http.post("http://localhost:3000/findByNickname",
-    info,{
+      info, {
       responseType: "json"
     });
 

@@ -22,12 +22,17 @@ export class GuardroutesGuard implements CanActivate {
   //   return true;
   // }
 
-  canActivate(route: ActivatedRouteSnapshot){
-    const usuario = "";
+  canActivate(route: ActivatedRouteSnapshot) {
+    const user = this.communicator.usuariData();
 
-    if (usuario) {
-      
+    console.log(route.component);
+
+    // if ( route.component == "/login" && user) return false;
+
+    if (user) {
+      return true;
     }
+
     return false;
   }
 
