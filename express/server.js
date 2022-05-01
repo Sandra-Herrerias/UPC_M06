@@ -74,7 +74,7 @@ app.put('/updateComment', function(req, res) {
     connection.end();
 })
 
-app.post('/addComent', function(req, res) {
+app.post('/addComment', function(request, res) {
 
     var connection = getConnection();
 
@@ -85,7 +85,14 @@ app.post('/addComent', function(req, res) {
         }
     });
 
-    connection.query('INSERT INTO comentarios values (?,?,?,?)', [req.body.params.price, req.body.params.releaseDate, req.body.params.synopsis, req.body.params.title], function(error, results, field) {
+    const comment = request.body.comment;
+    const id_player = request.body.id_player;
+    const created_at = request.body.created_at;
+    const updated_at = request.body.updated_at;
+
+    console.log("ID: " + id_player);
+
+    connection.query("INSERT INTO comments (comment, id_player, created_at, updated_at) values (?,?,?,?)", [comment, id_player, created_at, updated_at], function(error, results, field) {
         if (error) throw error;
         res.send(JSON.stringify(results));
     });
@@ -102,7 +109,27 @@ app.get('/checkUser', function(req, res) {
         }
     });
 
-    connection.query('SELECT * FROM jugadores WHERE id = ?', [req.body.params.email],
+    connection.query('SELECT * FROM players WHERE id = ?', [req.body.params.email],
+        function(error, results, field) {
+            if (error) throw error;
+            res.send(JSON.stringify(results));
+        });
+    connection.end();
+})
+
+app.post('/findByNickname', function(req, res) {
+    var connection = getConnection();
+
+    connection.connect(function(err) {
+        if (err) {
+            console.error('Error connecting: ' + err.stack);
+            return;
+        }
+    });
+
+    console.log(req.body.nickname);
+
+    connection.query('SELECT * FROM players WHERE nickname = ?', [req.body.nickname],
         function(error, results, field) {
             if (error) throw error;
             res.send(JSON.stringify(results));

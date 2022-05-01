@@ -1,5 +1,9 @@
+import { firstValueFrom } from 'rxjs';
+import { Player } from './../../model/player';
+import { Comment } from './../../model/comment';
 import { Component, OnInit } from '@angular/core';
 import { CommunicatorService } from 'src/app/service/communicator.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-comments-feedback',
@@ -8,17 +12,36 @@ import { CommunicatorService } from 'src/app/service/communicator.service';
 })
 export class CommentsFeedbackComponent implements OnInit {
 
-  dataComments:any;
-
-  constructor(private communicatorService: CommunicatorService) { }
+  dataComments: any;
+  newComment !: Comment;
+  formPlayer !: Player;
+  player: any;
+  constructor(private communicatorService: CommunicatorService,
+    public datepipe: DatePipe) { }
 
   ngOnInit(): void {
+    this.formPlayer = new Player(); //0, "", "", "", "", new Date(), new Date()
+    this.newComment = new Comment();
     this.communicatorService.getComments().subscribe(
       result => {
-        this.dataComments=result;}
+        this.dataComments = result;
+      }
     );
-    console.log("DATA COMMENTS");
-    console.log(this.dataComments);
   }
 
+  async addNewComment() {
+
+    let info = {
+      comment: this.newComment.comment,
+      id_player: 7,
+      created_at: this.datepipe.transform(new Date, 'yyyy-MM-dd'),
+      updated_at: this.datepipe.transform(new Date, 'yyyy-MM-dd')
+    }
+
+    this.communicatorService.addComment(info).subscribe(
+      result => {
+        this.dataComments = result;
+      }
+    );
+  }
 }

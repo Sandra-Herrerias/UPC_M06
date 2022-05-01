@@ -4,17 +4,18 @@
     </div>
 </div>
 
+
 <div class="container text-white mt-5">
     <div class="rounded">
         <div class="owl-carousel owl-theme text-dark">
-
             <div class="owl-item">
-                <div class="card d-flex flex-column">
-                    <div class="mt-2"> <span class="fas fa-star active-star"></span> <span class="fas fa-star active-star"></span> <span class="fas fa-star active-star"></span>
+                <div class="card d-flex flex-column" *ngFor="let item of dataComments">
+                    <div class="mt-2"> <span class="fas fa-star active-star"></span> <span class="fas fa-star active-star"></span>
+                        <span class="fas fa-star active-star"></span>
                         <span class="fas fa-star active-star"></span> <span class="fas fa-star-half-alt active-star"></span>
                     </div>
                     <div class="main font-weight-bold pb-2 pt-1">Great Service</div>
-                    <div class="testimonial"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni dolores molestias veniam inventore itaque eius iure omnis, temporibus culpa id. </div>
+                    <div class="testimonial"> {{item.comment}} </div>
                     <div class="d-flex flex-row profile pt-4 mt-auto"> <img src="https://i.pinimg.com/originals/7b/4a/e3/7b4ae307254a50c5ad796cc0a2d8d682.gif" alt="" class="rounded-circle">
                         <div class="d-flex flex-column pl-2">
                             <div class="name">Megan</div>
@@ -23,11 +24,6 @@
                     </div>
                 </div>
             </div>
-
-            <tr *ngFor="let item of dataComments;">
-                <td> {{item.comment}}</td>
-            </tr>
-
         </div>
     </div>
 </div>
@@ -37,21 +33,21 @@
     <div class="container">
         <form class="row g-3">
             <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Name</label>
-                <input type="email" class="form-control" id="inputEmail4">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" [(ngModel)]="formPlayer.nickname" #name="ngModel" id="name" name="name">
             </div>
             <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputPassword4">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" [(ngModel)]="formPlayer.email" #email="ngModel" id="email" name="email">
             </div>
             <div class="col-12">
                 <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <textarea class="form-control" placeholder="Leave a comment here" style="height: 100px" [(ngModel)]="newComment.comment" #comment="ngModel" id="comment" name="comment"></textarea>
                     <label for="floatingTextarea2">Comments</label>
                 </div>
             </div>
             <div class="col-12 text-center mb-5">
-                <button type="submit" class="btn btn-danger mt-4">Añadir</button>
+                <button type="submit" class="btn btn-danger mt-4" (click)="addNewComment()">Añadir</button>
             </div>
         </form>
     </div>
@@ -69,7 +65,9 @@
             margin: 40,
             dots: false,
             loop: true,
-            navText: ["<i class='fa fa-arrow-left' aria-hidden='true'></i>", "<i class='fa fa-arrow-right' aria-hidden='true'></i>"],
+            navText: ["<i class='fa fa-arrow-left' aria-hidden='true'></i>",
+                "<i class='fa fa-arrow-right' aria-hidden='true'></i>"
+            ],
             responsive: {
                 0: {
                     items: 1,

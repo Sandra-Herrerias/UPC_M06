@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../model/user';
-import { map } from 'rxjs/operators';
-import { BehaviorSubject, Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -72,7 +71,21 @@ export class CommunicatorService {
     {
       responseType: "json"
     });
-    
   }
 
+  addComment(info: any){
+    return this.http.post("http://localhost:3000/addComment",
+    info,
+    {responseType: "json"});
+
+  }
+
+
+  findByNickname(info: any){
+    return this.http.post("http://localhost:3000/findByNickname",
+    info,{
+      responseType: "json"
+    });
+
+  }
 }
