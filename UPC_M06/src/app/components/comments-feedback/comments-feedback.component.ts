@@ -8,15 +8,17 @@ import { CommunicatorService } from 'src/app/service/communicator.service';
 })
 export class CommentsFeedbackComponent implements OnInit {
 
-  comentarios: Object[] = [];
+  dataComments:any;
 
   constructor(private communicatorService: CommunicatorService) { }
 
   ngOnInit(): void {
-    // this.communicatorService.getData().subscribe(result => {
-    //   console.log(result);
-    //   this.comentarios.push(result);
-    // })
+    this.communicatorService.getComments().subscribe(
+      result => {
+        this.dataComments=result;}
+    );
+    console.log("DATA COMMENTS");
+    console.log(this.dataComments);
   }
 
 }

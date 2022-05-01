@@ -45,7 +45,7 @@ export class CommunicatorService {
     return null;
   }
 
-  getData() {
+  getComments() {
     return this.http.get("http://localhost:3000/getComments",
       {
         responseType: "json"
@@ -65,6 +65,14 @@ export class CommunicatorService {
 
     // this usuariSubject (json.parse(null!))
     // this.usuariSubject.next(json.parse(null!))
+  }
+
+  getRanking(){
+    return this.http.get("http://localhost:3000/getRanking",
+    {
+      responseType: "json"
+    });
+    
   }
 
 }

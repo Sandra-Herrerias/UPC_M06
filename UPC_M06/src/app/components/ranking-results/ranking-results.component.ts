@@ -1,3 +1,4 @@
+import { CommunicatorService } from 'src/app/service/communicator.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RankingResultsComponent implements OnInit {
 
-  constructor() { }
+  dataRanking:any;
+  constructor(private communicatorService: CommunicatorService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
+    this.communicatorService.getRanking().subscribe(
+      result => {this.dataRanking=result;}
+    );
   }
 
 }
