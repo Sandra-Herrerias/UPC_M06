@@ -10,25 +10,14 @@
         <div class="owl-carousel owl-theme text-dark">
             <div class="owl-item">
                 <div class="card d-flex flex-column" *ngFor="let item of dataComments">
-                    <div class="mt-2"> <span class="fas fa-star active-star"></span> <span class="fas fa-star active-star"></span>
-                        <span class="fas fa-star active-star"></span>
-                        <span class="fas fa-star active-star"></span> <span class="fas fa-star-half-alt active-star"></span>
-                    </div>
-                    <div class="main font-weight-bold pb-2 pt-1">Great Service</div>
                     <div class="testimonial"> {{item.comment}} </div>
-                    <div class="d-flex flex-row profile pt-4 mt-auto"> <img src="https://i.pinimg.com/originals/7b/4a/e3/7b4ae307254a50c5ad796cc0a2d8d682.gif" alt="" class="rounded-circle">
-                        <div class="d-flex flex-column pl-2">
-                            <div class="name">Megan</div>
-                            <p class="text-muted designation">CEO of My Company</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="bg-white">
+<div *ngIf="loggedIn" class="bg-white">
     <h2 class="text-center mt-5 pt-5">Añade tu comentario</h2>
     <div class="container">
         <form class="row g-3">

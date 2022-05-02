@@ -16,6 +16,9 @@ export class CommentsFeedbackComponent implements OnInit {
   newComment !: Comment;
   formPlayer !: Player;
   player: any;
+  loggedIn!: Player | null;
+
+
   constructor(private communicatorService: CommunicatorService,
     public datepipe: DatePipe) { }
 
@@ -27,9 +30,15 @@ export class CommentsFeedbackComponent implements OnInit {
         this.dataComments = result;
       }
     );
+
+    this.communicatorService.user.subscribe((result: any) => {
+      this.loggedIn = result;
+      console.log(this.loggedIn);
+    })
   }
 
   async addNewComment() {
+
 
     let info = {
       comment: this.newComment.comment,
