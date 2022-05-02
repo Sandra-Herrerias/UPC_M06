@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AboutgameComponent } from './components/aboutgame/aboutgame.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
-import { AdminCommentsComponent } from './components/admin-comments/admin-comments.component';
 import { CommentsFeedbackComponent } from './components/comments-feedback/comments-feedback.component';
 import { DownloadComponent } from './components/download/download.component';
 import { RankingResultsComponent } from './components/ranking-results/ranking-results.component';
@@ -22,7 +21,6 @@ import { DatePipe } from '@angular/common';
     AppComponent,
     AboutgameComponent,
     AboutusComponent,
-    AdminCommentsComponent,
     CommentsFeedbackComponent,
     DownloadComponent,
     RankingResultsComponent,
