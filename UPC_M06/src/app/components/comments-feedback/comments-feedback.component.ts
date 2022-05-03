@@ -29,7 +29,9 @@ export class CommentsFeedbackComponent implements OnInit {
     );
 
     this.communicatorService.user.subscribe((result: any) => {
-      this.loggedIn = result[0];
+      if(result != null){
+        this.loggedIn = result[0];
+      }
     })
   }
 

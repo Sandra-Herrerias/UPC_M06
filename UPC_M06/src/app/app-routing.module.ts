@@ -31,11 +31,17 @@ const routes: Routes = [
   {
     path: 'admin_comments',
     component: AdminCommentsComponent,
-    canActivate: [GuardroutesGuard]
+    canActivate: [GuardroutesGuard],
+    data: {
+      role: 'admin'
+    }
   },
   {
     path: 'comments_feedback',
-    component: CommentsFeedbackComponent
+    component: CommentsFeedbackComponent,
+    data: {
+      role: 'player'
+    }
   },
   {
     path: 'download',

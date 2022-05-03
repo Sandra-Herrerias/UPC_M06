@@ -32,10 +32,10 @@
                     <li class="nav-item">
                         <a class="nav-item nav-link" routerLink="/ranking_results" routerLinkActive="active">Ranking</a>
                     </li>
-                    <li class="nav-item">
+                    <li *ngIf="!loggedIn || userLogged[0].role === 'player'" class="nav-item">
                         <a class="nav-item nav-link" routerLink="/comments_feedback" routerLinkActive="active">Comentarios</a>
                     </li>
-                    <li *ngIf="loggedIn && loggedIn.role === 'admin'" class="nav-item">
+                    <li *ngIf="loggedIn && userLogged[0].role === 'admin'" class="nav-item">
                         <a class="nav-item nav-link" routerLink="/admin_comments" routerLinkActive="active">CRUD Comentarios</a>
                     </li>
                     <li class="nav-item">

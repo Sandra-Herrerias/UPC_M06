@@ -69,6 +69,8 @@ export class CommunicatorService {
     return this.userSubject.value;
   }
 
+  
+
   getComments() {
     return this.http.get("http://localhost:3000/getComments",
       {
@@ -89,6 +91,8 @@ export class CommunicatorService {
     this.userSubject.next(JSON.parse(null!));
     window.location.reload();
   }
+
+
 
 
 

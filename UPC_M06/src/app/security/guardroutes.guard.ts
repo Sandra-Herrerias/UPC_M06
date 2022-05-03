@@ -10,7 +10,7 @@ export class GuardroutesGuard implements CanActivate {
 
   // Router redirecciona <-- inyectar en el constructor
   // HttpService es mi servicio
-  constructor(private router: Router, private communicator: CommunicatorService) {
+  constructor(private route: Router, private communicator: CommunicatorService) {
 
   }
 
@@ -24,16 +24,17 @@ export class GuardroutesGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot) {
     const user = this.communicator.usuariData();
-
-    console.log(route.component);
-
-    // if ( route.component == "/login" && user) return false;
-    //Si la ruta es admin_comments i el rol es admin, me tiene que dejar pasar 
+    console.log(route.data['role']);//gets role
+    //Si la ruta es admin_comments y el rol es admin, me tiene que dejar pasar 
     //a la vista admin_comments en vez de la comments_feedback
-    if (user) {
-      return true;
+    if (user != null) {
+      if (route.component == "/admin_comments" && route.data['role'] != 'admin') {
+        return false;
+      } else {
+        return true;
+      }
     }
-
+    this.route.navigate(['/home']);
     return false;
   }
 

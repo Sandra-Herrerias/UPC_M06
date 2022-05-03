@@ -5,6 +5,8 @@ export class Comment {
      private _id_player!: number;
      private _created_at!: Date;
      private _updated_at!: Date;
+     private _nickname!: String;
+     private _email!: String;
 
      /**
       * 
@@ -13,10 +15,12 @@ export class Comment {
       * @param {number} id_player
       * @param {Date} created_at
       * @param {Date} updated_at
+      * @param {String} nickname
+      * @param {String} email
       */
  
  
-     constructor(id?: number, comment?: String, id_player?: number, created_at?: Date, updated_at?: Date) {
+     constructor(id?: number, comment?: String, id_player?: number, created_at?: Date, updated_at?: Date, nickname?: String, email?: String) {
  
          if (id != undefined) {
              this._id = id;
@@ -33,6 +37,12 @@ export class Comment {
          if (updated_at != undefined) {
              this._updated_at = updated_at;
          }
+         if (nickname != undefined) {
+            this._nickname = nickname;
+        }
+        if (email != undefined) {
+            this._email = email;
+        }
      }
  
      /**
@@ -114,4 +124,38 @@ export class Comment {
      public set updated_at(value: Date) {
          this._updated_at = value;
      }
+
+          /**
+      * Getter nickname
+      * @return {String}
+      */
+           public get nickname(): String {
+            return this._nickname;
+        }
+    
+        /**
+         * Setter nickname
+         * @param {String} value
+         */
+        public set nickname(value: String) {
+            this._nickname = value;
+        }
+ 
+        
+             /**
+      * Getter email
+      * @return {String}
+      */
+     public get email(): String {
+        return this._email;
+    }
+
+    /**
+     * Setter email
+     * @param {String} value
+     */
+    public set email(value: String) {
+        this._email = value;
+    }
+
 }

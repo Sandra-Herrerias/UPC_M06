@@ -12,13 +12,12 @@ export class AppComponent {
   title = 'UPC_M06';
   public data?: string;
   loggedIn!: Player | null;
+  userLogged!:any;
   constructor(public router: Router, private communicatorService: CommunicatorService) {
 
     this.router.events.subscribe(e => {
       if (e instanceof NavigationEnd) {
-        // console.log(this.router.url);
         this.data = this.router.url;
-        console.log(this.data);
       }
     });
 
@@ -27,7 +26,8 @@ export class AppComponent {
   ngOnInit(): void {
     this.communicatorService.user.subscribe((result: any) => {
       this.loggedIn = result;
-      console.log(this.loggedIn);
+      const myJSON = JSON.stringify(this.loggedIn);
+      this.userLogged = JSON.parse(myJSON);
     })
   }
 
