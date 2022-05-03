@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Comment } from 'src/app/model/comment';
 import { Player } from 'src/app/model/player';
@@ -15,40 +16,46 @@ export class AdminCommentsComponent implements OnInit {
   commentSelected !: Comment;
   showFormModify: Boolean = false;
 
-  constructor(public communicatorService: CommunicatorService) { }
+  constructor(public communicatorService: CommunicatorService,
+    public datepipe: DatePipe) { }
 
   ngOnInit(): void {
 
     this.newComment = new Comment();
-    this.communicatorService.getComments().subscribe(
-      result => {
-        this.dataComments = result;
-      }
-    );
+    this.loadComments();
     this.communicatorService.user.subscribe((result: any) => {
       this.loggedIn = result[0];
     })
   }
 
+  loadComments() {
+    this.communicatorService.getComments().subscribe(
+      result => {
+        this.dataComments = result;
+      }
+    );
+  }
 
-  
   /**
      * Function that asks for confirmation before deleting the comment
      * @param commentSelected 
      */
-   confirmDelete(commentSelected: any) {
-    if (confirm("Are you sure to delete this comment?")) {
+  confirmDelete(commentSelected: any) {
+    if (confirm("¿Está segura de eliminar este comentario?")) {
 
       let info = {
         id: commentSelected.id,
       }
       this.communicatorService.delete(info).subscribe(
         result => {
-          console.log("respuesta");
-          console.log(result);
-          //TODO if result OK
-          this.deleteComment(commentSelected);
-          //SINO missatge error
+          let res = JSON.parse(JSON.stringify(result));
+
+          if (res.affectedRows == 1) {//success message
+            this.deleteComment(commentSelected);
+            alert("Comentario eliminado correctamente");
+          } else {//error message
+            alert("El comentario no se ha podido eliminar");
+          }
         }
       );
     }
@@ -108,6 +115,31 @@ export class AdminCommentsComponent implements OnInit {
         this.dataComments[i] = $modifiedComment;
       }
     }
+  }
+
+  addNewComment() {
+    let info = {
+      comment: this.newComment.comment,
+      id_player: this.loggedIn?.id,
+      created_at: this.datepipe.transform(new Date(), 'yyyy-MM-dd HH:mm:SS'),
+      updated_at: this.datepipe.transform(new Date(), 'yyyy-MM-dd HH:mm:SS'),
+      nickname: this.loggedIn?.nickname,
+      email: this.loggedIn?.email
+    }
+
+    this.communicatorService.addComment(info).subscribe(
+      result => {
+        let res = JSON.parse(JSON.stringify(result));
+
+        if (res.affectedRows == 1) {//success message
+          this.loadComments();
+          alert("Comentario insertado correctamente");
+          this.newComment = new Comment();//blank textfield 
+        } else {//error message
+          alert("El comentario no se ha podido añadir");
+        }
+      }
+    );
   }
 
 }

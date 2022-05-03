@@ -57,8 +57,13 @@ export class EditCommentComponent implements OnInit {
   
     this.communicatorService.modifyComment(info).subscribe(
       result => {
-        console.log("respuesta");
-        console.log(result);
+        let res = JSON.parse(JSON.stringify(result));
+
+        if (res.affectedRows == 1) {//success message
+          alert("Comentario modificado correctamente");
+        } else {//error message
+          alert("El comentario no se ha podido modificar");
+        }
       }
     );
 

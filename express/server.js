@@ -26,7 +26,7 @@ app.get('/getComments', function(req, res) {
             return;
         }
     });
-    connection.query('SELECT comments.id as id, comments.comment as comment, players.nickname as nickname, players.email as email FROM players INNER JOIN comments ON players.id=comments.id_player;',
+    connection.query('SELECT comments.id as id, comments.comment as comment, players.nickname as nickname, players.email as email FROM players INNER JOIN comments ON players.id=comments.id_player ORDER BY comments.created_at ASC;',
         function(error, results, field) {
             if (error) throw error;
             res.send(JSON.stringify(results));
@@ -50,8 +50,6 @@ app.post('/addComment', function(request, res) {
     const id_player = request.body.id_player;
     const created_at = request.body.created_at;
     const updated_at = request.body.updated_at;
-
-    console.log("ID: " + id_player);
 
     connection.query("INSERT INTO comments (comment, id_player, created_at, updated_at) values (?,?,?,?)", [comment, id_player, created_at, updated_at], function(error, results, field) {
         if (error) throw error;

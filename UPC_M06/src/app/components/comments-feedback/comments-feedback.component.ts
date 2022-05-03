@@ -35,17 +35,28 @@ export class CommentsFeedbackComponent implements OnInit {
     })
   }
 
+  
   addNewComment() {
     let info = {
       comment: this.newComment.comment,
       id_player: this.loggedIn?.id,
-      created_at: this.datepipe.transform(new Date, 'yyyy-MM-dd'),
-      updated_at: this.datepipe.transform(new Date, 'yyyy-MM-dd')
+      created_at: this.datepipe.transform(new Date(), 'yyyy-MM-dd HH:mm:SS'),
+      updated_at: this.datepipe.transform(new Date(), 'yyyy-MM-dd HH:mm:SS'),
+      nickname: this.loggedIn?.nickname,
+      email: this.loggedIn?.email
     }
 
     this.communicatorService.addComment(info).subscribe(
       result => {
-        this.dataComments = result;
+        let res = JSON.parse(JSON.stringify(result));
+
+        if (res.affectedRows == 1) {//success message
+          this.dataComments.push(info);
+          alert("Comentario insertado correctamente");
+          this.newComment = new Comment();//blank textfield 
+        } else {//error message
+          alert("El comentario no se ha podido añadir");
+        }
       }
     );
   }
