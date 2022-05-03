@@ -3,13 +3,18 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../model/user';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Player } from '../model/player';
-import { catchError, map } from 'rxjs/operators';
+import {  map } from 'rxjs/operators';
+import { Comment } from '../model/comment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommunicatorService {
+
+  private comment = new BehaviorSubject<Comment>(new Comment(-1));
+ 
+  currentComment = this.comment.asObservable();
 
   private userSubject: BehaviorSubject<Player>;
   public user: Observable<Player>;//part public del Behabiour Subject
@@ -109,4 +114,32 @@ export class CommunicatorService {
     });
 
   }
+
+   /**
+   * Service POST
+   * @param info 
+   * @returns 
+   */
+    delete(info: Object) {
+      console.log(info);
+      return this.http.delete("http://localhost:3000/delete-comment",
+        {
+          responseType: "json",
+          body: info
+        });
+    }
+
+
+  /**
+ * This method modifies the selected shirt with the new info.
+ * @param info
+ */
+   modifyComment(info: Object) {
+    console.log(this.comment);
+    console.log(this.currentComment);
+    return this.http.put("http://localhost:3000/update-comment",
+    info,
+    {responseType: "json"});
+  }
+
 }

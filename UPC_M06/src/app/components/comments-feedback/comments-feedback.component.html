@@ -18,27 +18,57 @@
 </div>
 
 <div *ngIf="loggedIn" class="bg-white">
-    <h2 class="text-center mt-5 pt-5">Añade tu comentario</h2>
-    <div class="container">
-        <form class="row g-3">
-            <div class="col-md-6">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" [(ngModel)]="formPlayer.nickname" #name="ngModel" id="name" name="name">
-            </div>
-            <div class="col-md-6">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" [(ngModel)]="formPlayer.email" #email="ngModel" id="email" name="email">
-            </div>
-            <div class="col-12">
-                <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" style="height: 100px" [(ngModel)]="newComment.comment" #comment="ngModel" id="comment" name="comment"></textarea>
-                    <label for="floatingTextarea2">Comments</label>
+    <div *ngIf="loggedIn.role=='player'">
+        <h2 class="text-center mt-5 pt-5">Añade tu comentario</h2>
+        <div class="container">
+            <form class="row g-3">
+                <div class="col-md-6">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="formPlayer.nickname" #name="ngModel" id="name" name="name">
                 </div>
-            </div>
-            <div class="col-12 text-center mb-5">
-                <button type="submit" class="btn btn-danger mt-4" (click)="addNewComment()">Añadir</button>
-            </div>
-        </form>
+                <div class="col-md-6">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" [(ngModel)]="formPlayer.email" #email="ngModel" id="email" name="email">
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here" style="height: 100px" [(ngModel)]="newComment.comment" #comment="ngModel" id="comment" name="comment"></textarea>
+                        <label for="floatingTextarea2">Comments</label>
+                    </div>
+                </div>
+                <div class="col-12 text-center mb-5">
+                    <button type="submit" class="btn btn-danger mt-4" (click)="addNewComment()">Añadir</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div *ngIf="loggedIn.role=='admin'">
+        <table class="table table-hover table-borderless table-striped" style="background-color: #F28627;">
+            <thead style="background-color: #c22222;">
+                <tr>
+                    <th id="colTitle">USUARIO</th>
+                    <th id="colTitle">EMAIL</th>
+                    <th id="colTitle">COMENTARIO</th>
+                    <th id="colTitle">MODIFICAR</th>
+                    <th id="colTitle">ELIMINAR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of dataComments;  let i = index" [attr.data-index]="i">
+                    <td>{{item.nickname}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.comment}}</td>
+                    <td><button class="btn btn-warning" (click)="showFormModifyComment(item)"><i class="bi bi-pencil-fill"></i></button></td>
+                    <td><button class="btn btn-danger" (click)="confirmDelete(item)"><i class="bi bi-trash-fill"></i></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="showFormModify">
+        <app-edit-comment [comment]="commentSelected" (eventShow)="getEventShow($event)" (modifiedComment)="getCommentModified($event)">
+        </app-edit-comment>
     </div>
 </div>
 

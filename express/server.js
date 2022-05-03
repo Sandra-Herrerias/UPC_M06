@@ -16,23 +16,7 @@ var config = {
     password: ''
 };
 
-app.delete('/deleteComment/', function(req, res) {
-    let connection = getConnection();
 
-    connection.connect(function(err) {
-        if (err) {
-            console.error('Error connecting: ' + err.stack);
-            return;
-        }
-    });
-
-    connection.query('DELETE FROM comentarios WHERE id = ?', [req.params.id], function(error, results, field) {
-        if (error) throw error;
-        res.send(JSON.stringify(results));
-    });
-
-    connection.end();
-})
 
 app.get('/getComments', function(req, res) {
     var connection = getConnection();
@@ -42,30 +26,12 @@ app.get('/getComments', function(req, res) {
             return;
         }
     });
-    connection.query('SELECT * FROM comments',
+    connection.query('SELECT comments.id as id, comments.comment as comment, players.nickname as nickname, players.email as email FROM players INNER JOIN comments ON players.id=comments.id_player;',
         function(error, results, field) {
             if (error) throw error;
             res.send(JSON.stringify(results));
 
         });
-    connection.end();
-})
-
-app.put('/updateComment', function(req, res) {
-    console.log(req.body.params.id);
-    var connection = getConnection();
-    connection.connect(function(err) {
-        if (err) {
-            console.error('Error connecting: ' + err.stack);
-            return;
-        }
-    });
-
-    connection.query('update products set price = ?, releaseDate=?,synopsis=?,title=?,type=? WHERE id = ? ', [req.body.params.price, req.body.params.releaseDate, req.body.params.synopsis, req.body.params.title, req.body.params.type, req.body.params.id], function(error, results, field) {
-        if (error) throw error;
-        res.send(JSON.stringify(results));
-        console.log('updated!')
-    });
     connection.end();
 })
 
@@ -189,7 +155,31 @@ app.get('/getRanking', function(req, res) {
     connection.end();
 })
 
+//DELETE a comment
+app.delete('/delete-comment', (request, response) => {
+    var connection = mysql.createConnection(config);
+    const id = request.body.id;
+    console.log(request.body);
+    connection.query('DELETE FROM comments WHERE id = ?', [id], (error, result) => {
+        if (error) throw error;
+        response.send(result);
+    });
+    connection.end();
+});
 
+
+//UPDATE an existing comment
+app.put('/update-comment', (request, response) => {
+    var connection = mysql.createConnection(config);
+    const id = request.body.id;
+    const comment = request.body.comment;
+
+    connection.query('UPDATE comments SET comment=? WHERE id =?', [comment, id], (error, result, fields) => {
+        if (error) throw error;
+        response.send(result);
+    });
+    connection.end();
+});
 
 
 function getConnection() {

@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutgameComponent } from './components/aboutgame/aboutgame.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
-import { AdminCommentsComponent } from './components/admin-comments/admin-comments.component';
 import { CommentsFeedbackComponent } from './components/comments-feedback/comments-feedback.component';
 import { DownloadComponent } from './components/download/download.component';
 import { HomeComponent } from './components/home/home.component';
@@ -25,11 +24,6 @@ const routes: Routes = [
   {
     path: 'aboutus',
     component: AboutusComponent
-  },
-  {
-    path: 'admin_comments',
-    component: AdminCommentsComponent,
-    canActivate:[GuardroutesGuard]
   },
   {
     path: 'comments_feedback',
