@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutgameComponent } from './components/aboutgame/aboutgame.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
+
+// import { AdminCommentsComponent } from './components/admin-comments/admin-comments.component';
+
 import { CommentsFeedbackComponent } from './components/comments-feedback/comments-feedback.component';
 import { DownloadComponent } from './components/download/download.component';
 import { HomeComponent } from './components/home/home.component';
@@ -25,6 +28,14 @@ const routes: Routes = [
     path: 'aboutus',
     component: AboutusComponent
   },
+<<<<<<< HEAD
+=======
+  // {
+  //   path: 'admin_comments',
+  //   component: AdminCommentsComponent,
+  //   canActivate:[GuardroutesGuard]
+  // },
+>>>>>>> 5f932a91b5fbedd3aa9e52aac124e57c21644934
   {
     path: 'comments_feedback',
     component: CommentsFeedbackComponent
