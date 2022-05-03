@@ -28,7 +28,8 @@ export class GuardroutesGuard implements CanActivate {
     console.log(route.component);
 
     // if ( route.component == "/login" && user) return false;
-
+    //Si la ruta es admin_comments i el rol es admin, me tiene que dejar pasar 
+    //a la vista admin_comments en vez de la comments_feedback
     if (user) {
       return true;
     }

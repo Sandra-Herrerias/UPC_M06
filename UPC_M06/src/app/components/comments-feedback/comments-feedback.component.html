@@ -9,12 +9,13 @@
     <div class="rounded">
         <div class="owl-carousel owl-theme text-dark">
             <div class="owl-item">
-                <div class="card d-flex flex-column" *ngFor="let item of dataComments">
-                    <div class="testimonial"> {{item.comment}} </div>
-                </div>
+
             </div>
         </div>
     </div>
+</div>
+<div class="card d-flex flex-column" *ngFor="let item of dataComments">
+    <div class="testimonial"> {{item.comment}} </div>
 </div>
 
 <div *ngIf="loggedIn" class="bg-white">
@@ -22,14 +23,6 @@
         <h2 class="text-center mt-5 pt-5">Añade tu comentario</h2>
         <div class="container">
             <form class="row g-3">
-                <div class="col-md-6">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" [(ngModel)]="formPlayer.nickname" #name="ngModel" id="name" name="name">
-                </div>
-                <div class="col-md-6">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" [(ngModel)]="formPlayer.email" #email="ngModel" id="email" name="email">
-                </div>
                 <div class="col-12">
                     <div class="form-floating">
                         <textarea class="form-control" placeholder="Leave a comment here" style="height: 100px" [(ngModel)]="newComment.comment" #comment="ngModel" id="comment" name="comment"></textarea>
@@ -41,6 +34,7 @@
                 </div>
             </form>
         </div>
+
     </div>
 
 </div>
