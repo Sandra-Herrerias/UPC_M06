@@ -28,14 +28,12 @@ const routes: Routes = [
     path: 'aboutus',
     component: AboutusComponent
   },
-<<<<<<< HEAD
-=======
+
   // {
   //   path: 'admin_comments',
   //   component: AdminCommentsComponent,
   //   canActivate:[GuardroutesGuard]
   // },
->>>>>>> 5f932a91b5fbedd3aa9e52aac124e57c21644934
   {
     path: 'comments_feedback',
     component: CommentsFeedbackComponent
