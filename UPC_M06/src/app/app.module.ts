@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './components/register/register.component';
 import { DatePipe } from '@angular/common';
+import { EditCommentComponent } from './components/edit-comment/edit-comment.component';
+import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -27,16 +29,18 @@ import { DatePipe } from '@angular/common';
     TechnologiesComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    EditCommentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ModalModule
   ],
-  providers: [DatePipe],
+  providers: [DatePipe, BsModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
