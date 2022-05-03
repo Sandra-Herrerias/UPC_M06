@@ -17,6 +17,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { DatePipe } from '@angular/common';
 import { EditCommentComponent } from './components/edit-comment/edit-comment.component';
 import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
+import { AdminCommentsComponent } from './components/admin-comments/admin-comments.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    EditCommentComponent
+    EditCommentComponent,
+    AdminCommentsComponent
   ],
   imports: [
     BrowserModule,

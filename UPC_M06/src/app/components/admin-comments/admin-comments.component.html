@@ -1,0 +1,39 @@
+<div class="bg-warning">
+    <div class="text-white text-center">
+        <h1 class="text-dark display-1 p-5 mb-5">Comments</h1>
+    </div>
+</div>
+
+
+<div *ngIf="loggedIn" class="bg-white">
+
+    <div *ngIf="loggedIn.role=='admin'">
+        <table class="table table-hover table-borderless table-striped" style="background-color: #F28627;">
+            <thead style="background-color: #c22222;">
+                <tr>
+                    <th id="colTitle">USUARIO</th>
+                    <th id="colTitle">EMAIL</th>
+                    <th id="colTitle">COMENTARIO</th>
+                    <th id="colTitle">MODIFICAR</th>
+                    <th id="colTitle">ELIMINAR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of dataComments;  let i = index" [attr.data-index]="i">
+                    <td>{{item.nickname}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.comment}}</td>
+                    <td><button class="btn btn-warning" (click)="showFormModifyComment(item)"><i class="bi bi-pencil-fill"></i></button></td>
+                    <td><button class="btn btn-danger" (click)="confirmDelete(item)"><i class="bi bi-trash-fill"></i></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="showFormModify">
+        <app-edit-comment [comment]="commentSelected" (eventShow)="getEventShow($event)" (modifiedComment)="getCommentModified($event)">
+        </app-edit-comment>
+    </div>
+
+
+</div>
