@@ -2,6 +2,7 @@ export class Player {
     //Properties
     private _id!: number;
     private _nickname!: String;
+    private _avatar!: String;
     private _email!: String;
     private _password!: String;
     private _role!: String;
@@ -9,24 +10,25 @@ export class Player {
     private _updated_at!: Date;
 
     /**
-     * 
      * @param {number} id
      * @param {String} nickname
+     * @param {String} avatar
      * @param {String} email
      * @param {String} password
      * @param {String} role
      * @param {Date} created_at
      * @param {Date} updated_at
      */
-
-
-    constructor(id?: number, nickname?: String, email?: String, password?: String, role?: String, created_at?: Date, updated_at?: Date) {
+    constructor(id?: number, nickname?: String, avatar?: String, email?: String, password?: String, role?: String, created_at?: Date, updated_at?: Date) {
 
         if (id != undefined) {
             this._id = id;
         }
         if (nickname != undefined) {
             this._nickname = nickname;
+        }
+        if (avatar != undefined) {
+            this._avatar = avatar;
         }
         if (email != undefined) {
             this._email = email;
@@ -77,25 +79,41 @@ export class Player {
         this._nickname = value;
     }
 
-        /**
-     * Getter email
-     * @return {String}
+    /**
+ * Getter avatar
+ * @return {String}
+ */
+    public get avatar(): String {
+        return this._avatar;
+    }
+
+    /**
+     * Setter avatar
+     * @param {String} value
      */
-         public get email(): String {
-            return this._email;
-        }
-    
-        /**
-         * Setter email
-         * @param {String} value
-         */
-        public set email(value: String) {
-            this._email = value;
-        }
-            /**
-     * Getter password
-     * @return {String}
+    public set avatar(value: String) {
+        this._avatar = value;
+    }
+
+    /**
+ * Getter email
+ * @return {String}
+ */
+    public get email(): String {
+        return this._email;
+    }
+
+    /**
+     * Setter email
+     * @param {String} value
      */
+    public set email(value: String) {
+        this._email = value;
+    }
+    /**
+* Getter password
+* @return {String}
+*/
     public get password(): String {
         return this._password;
     }
@@ -107,21 +125,21 @@ export class Player {
     public set password(value: String) {
         this._password = value;
     }
-        /**
-     * Getter role
-     * @return {String}
+    /**
+ * Getter role
+ * @return {String}
+ */
+    public get role(): String {
+        return this._role;
+    }
+
+    /**
+     * Setter role
+     * @param {String} value
      */
-         public get role(): String {
-            return this._role;
-        }
-    
-        /**
-         * Setter role
-         * @param {String} value
-         */
-        public set role(value: String) {
-            this._role = value;
-        }
+    public set role(value: String) {
+        this._role = value;
+    }
 
 
     /**

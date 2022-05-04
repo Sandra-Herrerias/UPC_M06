@@ -26,7 +26,7 @@ app.get('/getComments', function(req, res) {
             return;
         }
     });
-    connection.query('SELECT comments.id as id, comments.comment as comment, players.nickname as nickname, players.email as email FROM players INNER JOIN comments ON players.id=comments.id_player ORDER BY comments.created_at ASC;',
+    connection.query('SELECT comments.id as id, comments.comment as comment, users.nickname as nickname, users.email as email FROM users INNER JOIN comments ON users.id=comments.id_player ORDER BY comments.created_at ASC;',
         function(error, results, field) {
             if (error) throw error;
             res.send(JSON.stringify(results));
@@ -68,7 +68,7 @@ app.get('/checkUser', function(req, res) {
         }
     });
 
-    connection.query('SELECT * FROM players WHERE id = ?', [req.body.params.email],
+    connection.query('SELECT * FROM users WHERE id = ?', [req.body.params.email],
         function(error, results, field) {
             if (error) throw error;
             res.send(JSON.stringify(results));
@@ -86,7 +86,7 @@ app.post('/login', function(req, res) {
         }
     });
 
-    connection.query('SELECT * FROM players WHERE email = ? and password = ?', [req.body._email, req.body._password],
+    connection.query('SELECT * FROM users WHERE email = ? and password = ?', [req.body._email, req.body._password],
         function(error, results, field) {
             if (error) {
                 res.send(null);
@@ -113,7 +113,7 @@ app.post('/findByNickname', function(req, res) {
 
     console.log(req.body.nickname);
 
-    connection.query('SELECT * FROM players WHERE nickname = ?', [req.body.nickname],
+    connection.query('SELECT * FROM users WHERE nickname = ?', [req.body.nickname],
         function(error, results, field) {
             if (error) throw error;
             res.send(JSON.stringify(results));
@@ -145,7 +145,7 @@ app.get('/getRanking', function(req, res) {
         }
     });
 
-    connection.query('SELECT pl.email, COUNT(*) as victories FROM players pl JOIN participations p on pl.id = p.idP WHERE p.position = 1 GROUP BY pl.id ORDER BY victories DESC',
+    connection.query('SELECT pl.email, COUNT(*) as victories FROM users pl JOIN participations p on pl.id = p.idP WHERE p.position = 1 GROUP BY pl.id ORDER BY victories DESC',
         function(error, results, field) {
             if (error) throw error;
             res.send(JSON.stringify(results));
