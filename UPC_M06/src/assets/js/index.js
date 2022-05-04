@@ -1,5 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", function () {
+    // console.log(window.location.pathname)
     if (window.location.pathname == '/home' || window.location.pathname == '/') {
         document.addEventListener("mousemove", function (e) {
             var width = window.innerWidth,

@@ -20,12 +20,13 @@ export class AdminCommentsComponent implements OnInit {
     public datepipe: DatePipe) { }
 
   ngOnInit(): void {
-
     this.newComment = new Comment();
-    this.loadComments();
     this.communicatorService.user.subscribe((result: any) => {
-      this.loggedIn = result[0];
+      // console.log(result)
+      this.loggedIn = result;
     })
+    // this.loggedIn = this.communicatorService.usuariData();
+    this.loadComments();
   }
 
   loadComments() {
@@ -38,7 +39,7 @@ export class AdminCommentsComponent implements OnInit {
 
   /**
      * Function that asks for confirmation before deleting the comment
-     * @param commentSelected 
+     * @param commentSelected
      */
   confirmDelete(commentSelected: any) {
     if (confirm("¿Está segura de eliminar este comentario?")) {
@@ -64,7 +65,7 @@ export class AdminCommentsComponent implements OnInit {
 
   /**
    * This method removes the comment from the list, asking info to the method from the service that removes comments.
-   * @param commentSelected 
+   * @param commentSelected
    */
   deleteComment(commentSelected: any): void {
     for (let i = 0; i < this.dataComments.length; i++) {
@@ -96,16 +97,16 @@ export class AdminCommentsComponent implements OnInit {
   }
 
   /**
-   * Executes info that gets from child component 
-   * @param $e 
+   * Executes info that gets from child component
+   * @param $e
    */
   getEventShow($e: Boolean) {
     this.showFormModify = $e;
   }
 
   /**
-   * Executes info that gets from child component 
-   * @param $e 
+   * Executes info that gets from child component
+   * @param $e
    */
   getCommentModified($modifiedComment: Comment) {
 
@@ -134,7 +135,7 @@ export class AdminCommentsComponent implements OnInit {
         if (res.affectedRows == 1) {//success message
           this.loadComments();
           alert("Comentario insertado correctamente");
-          this.newComment = new Comment();//blank textfield 
+          this.newComment = new Comment();//blank textfield
         } else {//error message
           alert("El comentario no se ha podido añadir");
         }

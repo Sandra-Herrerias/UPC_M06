@@ -1,6 +1,6 @@
-<div class="container">
-    <div class="wrapper">
-        <h2 class="text-center mt-5 pt-5">Modificar comentario</h2>
+<div class="wrapper bg-white ">
+    <h2 class="text-center mt-5 pt-5">Modificar comentario</h2>
+    <div class="container">
         <form #form1="ngForm" class="row g-3">
             <div class="col-12">
                 <div class="form-group">
@@ -9,12 +9,14 @@
 
                 <div class="form-group">
                     <label for="colorLabel" class="control-label">Modificar comentario*</label><br>
-                    <textarea class="form-control" type="text" [(ngModel)]="newComment.comment" #commentText="ngModel" id="commentText" name="commentText" required></textarea>
+                    <textarea class="form-control" type="text" [(ngModel)]="newComment.comment" #commentText="ngModel"
+                        id="commentText" name="commentText" required></textarea>
                 </div><br>
             </div>
 
             <div class="col-12 text-center mb-5">
-                <button class="btn btn-warning" type="button" [disabled]="form1.invalid" (click)="emitInfoModifyComments()">Modificar</button>
+                <button class="btn btn-warning" type="button" [disabled]="form1.invalid"
+                    (click)="emitInfoModifyComments()">Modificar</button>
             </div>
         </form>
     </div>

@@ -11,21 +11,22 @@ import { CommunicatorService } from 'src/app/service/communicator.service';
 })
 export class LoginComponent implements OnInit {
 
-  // username?: string;
-  // password?: string;
   message: string | undefined;
+
   public loginForm = this.formBuilder.group({
-    usuari: [
+    email: [
       '',
       [
         Validators.required,
-        Validators.minLength(8),
         Validators.email
-        // Validators.maxLength(10)
       ]
     ],
-    password: ['',
-      Validators.required]
+    password: [
+      '',
+      [
+        Validators.required,
+      ]
+    ]
   });
 
 
@@ -34,11 +35,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login() {
-    // console.log(this.loginForm.value);
-    this.communicatorService.login(new Player(0, "", this.loginForm.value.usuari, this.loginForm.value.password)).subscribe((res: any) => {
-      // console.log("respuesta: "+res.length);
-      if (res.length > 0) {
+  login(): void {
+    this.communicatorService.login(new Player(0,"","",this.loginForm.value.email,this.loginForm.value.password)).subscribe((res: any) => {
+      if (res) {
         this.route.navigate(['/home']);
       } else {
         this.message = "Credenciales incorrectas.";

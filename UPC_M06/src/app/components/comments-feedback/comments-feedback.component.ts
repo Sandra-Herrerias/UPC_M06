@@ -21,13 +21,13 @@ export class CommentsFeedbackComponent implements OnInit {
     dots: false,
     loop: true,
     responsive: {
-        0: {
-            items: 1,
-        },
-        575: { items: 1 },
-        768: { items: 2 },
-        991: { items: 3 },
-        1200: { items: 4 }
+      0: {
+        items: 1,
+      },
+      575: { items: 1 },
+      768: { items: 2 },
+      991: { items: 3 },
+      1200: { items: 4 }
     }
   }
 
@@ -40,24 +40,28 @@ export class CommentsFeedbackComponent implements OnInit {
     public datepipe: DatePipe) { }
 
   ngOnInit(): void {
-    this.formPlayer = new Player(); //0, "", "", "", "", new Date(), new Date()
+    // this.formPlayer = new Player(); //0, "", "", "", "", new Date(), new Date()
     this.newComment = new Comment();
+
+    this.communicatorService.user.subscribe((result: any) => {
+      // console.log(result); Mejorar
+      this.loggedIn = new Player(result._id, result._nickname, "", result._email,"", result._role);
+      console.log(this.loggedIn)
+    })
+
     this.communicatorService.getComments().subscribe(
       result => {
-        console.log(result)
+        // console.log(result)
         this.dataComments = result;
       }
     );
 
-    this.communicatorService.user.subscribe((result: any) => {
-      if (result != null) {
-        this.loggedIn = result[0];
-      }
-    })
+
   }
 
 
   addNewComment() {
+    console.log(this.loggedIn);
     let info = {
       comment: this.newComment.comment,
       id_player: this.loggedIn?.id,
@@ -66,6 +70,7 @@ export class CommentsFeedbackComponent implements OnInit {
       nickname: this.loggedIn?.nickname,
       email: this.loggedIn?.email
     }
+
 
     this.communicatorService.addComment(info).subscribe(
       result => {

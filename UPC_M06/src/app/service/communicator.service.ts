@@ -53,7 +53,6 @@ export class CommunicatorService {
   login(player: Player): Observable<Player> {
     return this.http.post<Player>("http://localhost:3000/login", player, { responseType: "json" }).pipe(
       map(res => {
-        // console.log(res);
         if (res) {
           const player: Player = Object.assign(new Player(), res);
           localStorage.setItem('player', JSON.stringify(player));

@@ -7,24 +7,20 @@
             </h1>
             <br>
             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Correo electrónico
+                <label  class="form-label">Correo electrónico
                 </label>
-                <!-- <input type="text" class="form-control" id="usuari" name="user" [(ngModel)]="username" #user="ngModel" -->
-                <!-- placeholder="Usuario*" formControlName="usuari" required> -->
-                <input type="email" value="Juan@gmail.com" class="form-control" id="usuari" placeholder="Usuario*"
-                    formControlName="usuari" required>
-                <label *ngIf="loginForm.get('usuari')?.errors?.['required'] && loginForm.get('usuari')?.dirty">No es
-                    válido</label>
-                <label *ngIf="loginForm.get('usuari')?.errors?.['email'] && loginForm.get('usuari')?.dirty">Email no
+                <input type="email" value="Juan@gmail.com" class="form-control" id="email"
+                    placeholder="example@gmail.com" formControlName="email" required>
+                <label class="text-danger" *ngIf="loginForm.get('email')?.errors?.['required'] && loginForm.get('email')?.dirty">Email requerido</label>
+                <label class="text-danger" *ngIf="loginForm.get('email')?.errors?.['email'] && loginForm.get('email')?.dirty">Email no
                     válido</label>
             </div>
             <div class="mb-3">
-                <label for="exampleFormControlInput2" class="form-label">Contraseña</label>
-                <input type="password" id="password" value="juan" formControlName="password" class="form-control"
-                    placeholder="Contraseña*" required>
-                <label
-                    *ngIf="loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.dirty">Password
-                    no es válido</label>
+                <label  class="form-label">Contraseña</label>
+                <input type="password" id="password" formControlName="password" class="form-control"
+                    placeholder="*******" required>
+                <label  class="text-danger" *ngIf="loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.dirty">Password
+                    requerido</label>
             </div>
 
             <div *ngIf="message" class="mb-3 text-danger">{{message}}</div>

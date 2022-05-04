@@ -12,9 +12,9 @@ export class AppComponent {
   title = 'UPC_M06';
   public data?: string;
   loggedIn!: Player | null;
-  userLogged!:any;
+  
+  // userLogged!:any;
   constructor(public router: Router, private communicatorService: CommunicatorService) {
-
     this.router.events.subscribe(e => {
       if (e instanceof NavigationEnd) {
         this.data = this.router.url;
@@ -25,9 +25,9 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.communicatorService.user.subscribe((result: any) => {
-      this.loggedIn = result;
-      const myJSON = JSON.stringify(this.loggedIn);
-      this.userLogged = JSON.parse(myJSON);
+      // console.log(result); Mejorar
+      this.loggedIn = new Player(result._id, result._nickname, "", "","", result._role);
+      console.log(this.loggedIn)
     })
   }
 

@@ -35,7 +35,7 @@ export class EditCommentComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges) {
     console.log(this.comment.id);
     this.newComment = new Comment(this.comment.id, this.comment.comment, this.comment.id_player, this.comment.created_at, this.comment.updated_at, this.comment.nickname, this.comment.email);
-  
+
   }
 
   /**
@@ -49,12 +49,12 @@ export class EditCommentComponent implements OnInit {
       id: this.newComment.id,
       comment: this.newComment.comment,
       id_player: this.newComment.id_player,
-      created_at:this.newComment.created_at,
-      updated_at:new Date(),
+      created_at: this.newComment.created_at,
+      updated_at: new Date(),
       nickname: this.newComment.nickname,
       email: this.newComment.email,
     }
-  
+
     this.communicatorService.modifyComment(info).subscribe(
       result => {
         let res = JSON.parse(JSON.stringify(result));
