@@ -33,7 +33,6 @@
                             "src/styles.css"
                         ],
                         "scripts": [
-                            "node_modules/glyphicons/glyphicons.js",
                             "node_modules/bootstrap/dist/js/bootstrap.min.js",
                             "src/assets/js/gsap.min.js",
                             "src/assets/js/index.js"

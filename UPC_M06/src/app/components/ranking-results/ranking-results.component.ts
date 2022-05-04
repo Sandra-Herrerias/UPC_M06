@@ -8,12 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RankingResultsComponent implements OnInit {
 
-  dataRanking:any;
+  dataRanking: any;
+  p: number = 1;
+  ipp: number = 5;
   constructor(private communicatorService: CommunicatorService) { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.communicatorService.getRanking().subscribe(
-      result => {this.dataRanking=result;}
+      result => { this.dataRanking = result; console.log(this.dataRanking) }
     );
   }
 

@@ -20,6 +20,7 @@ import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 import { AdminCommentsComponent } from './components/admin-comments/admin-comments.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
     ModalModule,
     CarouselModule,
     BrowserAnimationsModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    NgxPaginationModule
   ],
   providers: [DatePipe, BsModalService],
   bootstrap: [AppComponent]
