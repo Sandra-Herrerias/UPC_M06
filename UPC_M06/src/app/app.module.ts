@@ -18,6 +18,8 @@ import { DatePipe } from '@angular/common';
 import { EditCommentComponent } from './components/edit-comment/edit-comment.component';
 import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 import { AdminCommentsComponent } from './components/admin-comments/admin-comments.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,10 @@ import { AdminCommentsComponent } from './components/admin-comments/admin-commen
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    ModalModule
+    ModalModule,
+    CarouselModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule
   ],
   providers: [DatePipe, BsModalService],
   bootstrap: [AppComponent]

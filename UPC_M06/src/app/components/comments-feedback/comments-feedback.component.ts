@@ -3,6 +3,7 @@ import { Comment } from './../../model/comment';
 import { Component, OnInit } from '@angular/core';
 import { CommunicatorService } from 'src/app/service/communicator.service';
 import { DatePipe } from '@angular/common';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-comments-feedback',
@@ -10,6 +11,25 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./comments-feedback.component.css']
 })
 export class CommentsFeedbackComponent implements OnInit {
+
+  customOptions: OwlOptions = {
+    autoplay: false,
+    items: 1,
+    center: false,
+    nav: true,
+    margin: 40,
+    dots: false,
+    loop: true,
+    responsive: {
+        0: {
+            items: 1,
+        },
+        575: { items: 1 },
+        768: { items: 2 },
+        991: { items: 3 },
+        1200: { items: 4 }
+    }
+  }
 
   dataComments: any;
   formPlayer !: Player;
@@ -24,18 +44,19 @@ export class CommentsFeedbackComponent implements OnInit {
     this.newComment = new Comment();
     this.communicatorService.getComments().subscribe(
       result => {
+        console.log(result)
         this.dataComments = result;
       }
     );
 
     this.communicatorService.user.subscribe((result: any) => {
-      if(result != null){
+      if (result != null) {
         this.loggedIn = result[0];
       }
     })
   }
 
-  
+
   addNewComment() {
     let info = {
       comment: this.newComment.comment,
