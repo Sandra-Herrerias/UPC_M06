@@ -18,16 +18,16 @@ var config = {
 
 
 
-app.get('/getComments', function(req, res) {
+app.get('/getComments', function (req, res) {
     var connection = getConnection();
-    connection.connect(function(err) {
+    connection.connect(function (err) {
         if (err) {
             console.error('Error connecting: ' + err.stack);
             return;
         }
     });
     connection.query('SELECT comments.id as id, comments.comment as comment, users.nickname as nickname, users.email as email, users.avatar as avatar FROM users INNER JOIN comments ON users.id=comments.id_player ORDER BY comments.created_at DESC LIMIT 7;',
-        function(error, results, field) {
+        function (error, results, field) {
             if (error) throw error;
             console.log(results);
             res.send(JSON.stringify(results));
@@ -36,11 +36,11 @@ app.get('/getComments', function(req, res) {
     connection.end();
 })
 
-app.post('/addComment', function(request, res) {
+app.post('/addComment', function (request, res) {
 
     var connection = getConnection();
 
-    connection.connect(function(err) {
+    connection.connect(function (err) {
         if (err) {
             console.error('Error connecting: ' + err.stack);
             return;
@@ -52,17 +52,19 @@ app.post('/addComment', function(request, res) {
     const created_at = request.body.created_at;
     const updated_at = request.body.updated_at;
 
-    connection.query("INSERT INTO comments (comment, id_player, created_at, updated_at) values (?,?,?,?)", [comment, id_player, created_at, updated_at], function(error, results, field) {
+    connection.query("INSERT INTO comments (comment, id_player, created_at, updated_at) values (?,?,?,?)", 
+    [comment, id_player, created_at, updated_at], function (error, results, field) {
         if (error) throw error;
         res.send(JSON.stringify(results));
     });
+    
     connection.end();
 })
 
-app.get('/checkUser', function(req, res) {
+app.get('/checkUser', function (req, res) {
     var connection = getConnection();
 
-    connection.connect(function(err) {
+    connection.connect(function (err) {
         if (err) {
             console.error('Error connecting: ' + err.stack);
             return;
@@ -70,17 +72,17 @@ app.get('/checkUser', function(req, res) {
     });
 
     connection.query('SELECT * FROM users WHERE id = ?', [req.body.params.email],
-        function(error, results, field) {
+        function (error, results, field) {
             if (error) throw error;
             res.send(JSON.stringify(results));
         });
     connection.end();
 })
 
-app.post('/login', function(req, res) {
+app.post('/login', function (req, res) {
     var connection = getConnection();
 
-    connection.connect(function(err) {
+    connection.connect(function (err) {
         if (err) {
             console.error('Error connecting: ' + err.stack);
             return;
@@ -88,13 +90,12 @@ app.post('/login', function(req, res) {
     });
 
     connection.query('SELECT * FROM users WHERE email = ? and password = ?', [req.body._email, req.body._password],
-        function(error, results, field) {
+        function (error, results, field) {
             if (error) {
                 res.send(null);
             };
-
             if (results.length > 0) {
-                res.send(JSON.stringify(results));
+                res.send(results[0]);
             } else {
                 res.send(null);
             }
@@ -102,10 +103,10 @@ app.post('/login', function(req, res) {
     connection.end();
 })
 
-app.post('/findByNickname', function(req, res) {
+app.post('/findByNickname', function (req, res) {
     var connection = getConnection();
 
-    connection.connect(function(err) {
+    connection.connect(function (err) {
         if (err) {
             console.error('Error connecting: ' + err.stack);
             return;
@@ -115,17 +116,17 @@ app.post('/findByNickname', function(req, res) {
     console.log(req.body.nickname);
 
     connection.query('SELECT * FROM users WHERE nickname = ?', [req.body.nickname],
-        function(error, results, field) {
+        function (error, results, field) {
             if (error) throw error;
             res.send(JSON.stringify(results));
         });
     connection.end();
 })
 
-app.post('/addUser', function(req, res) {
+app.post('/addUser', function (req, res) {
     var connection = getConnection();
     console.log(req)
-    connection.connect(function(err) {
+    connection.connect(function (err) {
         if (err) {
             console.error('Error connecting: ' + err.stack);
             return;
@@ -136,18 +137,18 @@ app.post('/addUser', function(req, res) {
 })
 
 
-app.get('/getRanking', function(req, res) {
+app.get('/getRanking', function (req, res) {
     var connection = getConnection();
 
-    connection.connect(function(err) {
+    connection.connect(function (err) {
         if (err) {
             console.error('Error connecting: ' + err.stack);
             return;
         }
     });
 
-    connection.query('SELECT pl.nickname, COUNT(*) as victories FROM users pl JOIN participations p on pl.id = p.idP WHERE p.position = 1 GROUP BY pl.id ORDER BY victories DESC',
-        function(error, results, field) {
+    connection.query('SELECT pl.nickname, pl.avatar ,COUNT(*) as victories FROM users pl JOIN participations p on pl.id = p.idP WHERE p.position = 1 GROUP BY pl.id ORDER BY victories DESC',
+        function (error, results, field) {
             if (error) throw error;
             res.send(JSON.stringify(results));
         });

@@ -26,8 +26,11 @@ export class AppComponent {
   ngOnInit(): void {
     this.communicatorService.user.subscribe((result: any) => {
       // console.log(result); Mejorar
-      this.loggedIn = new Player(result._id, result._nickname, "", "","", result._role);
-      console.log(this.loggedIn)
+      if (result) {
+        this.loggedIn = new Player(result._id, result._nickname, "", "","", result._role);
+      }
+     
+      // console.log(this.loggedIn)
     })
   }
 

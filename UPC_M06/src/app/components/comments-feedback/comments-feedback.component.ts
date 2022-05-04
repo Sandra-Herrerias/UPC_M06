@@ -45,8 +45,9 @@ export class CommentsFeedbackComponent implements OnInit {
 
     this.communicatorService.user.subscribe((result: any) => {
       // console.log(result); Mejorar
+      if (result) {
       this.loggedIn = new Player(result._id, result._nickname, "", result._email,"", result._role);
-      console.log(this.loggedIn)
+      }
     })
 
     this.communicatorService.getComments().subscribe(
