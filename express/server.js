@@ -145,7 +145,7 @@ app.get('/getRanking', function(req, res) {
         }
     });
 
-    connection.query('SELECT pl.email, COUNT(*) as victories FROM users pl JOIN participations p on pl.id = p.idP WHERE p.position = 1 GROUP BY pl.id ORDER BY victories DESC',
+    connection.query('SELECT pl.nickname, COUNT(*) as victories FROM users pl JOIN participations p on pl.id = p.idP WHERE p.position = 1 GROUP BY pl.id ORDER BY victories DESC',
         function(error, results, field) {
             if (error) throw error;
             res.send(JSON.stringify(results));
