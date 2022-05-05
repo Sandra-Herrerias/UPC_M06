@@ -77,11 +77,12 @@ export class CommunicatorService {
       });
   }
 
-  addUser(user: User) {
+   // Player tiene todos los campos de la tabla user
+   addUser(user: Player) {
     return this.http.post("http://localhost:3000/addUser",
       {
-        responseType: "json",
-        params: { username: user.username, email: user.email, password: user.password }
+        responseType: "json", user,
+        params: { responseType: "json" }
       });
   }
 
