@@ -36,13 +36,14 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    this.communicatorService.login(new Player(0,"","",this.loginForm.value.email,this.loginForm.value.password)).subscribe((res: any) => {
-      if (res) {
-        this.route.navigate(['/home']);
-      } else {
-        this.message = "Credenciales incorrectas.";
-      }
-    })
+    this.communicatorService.login(new Player(0, "", "", this.loginForm.value.email,
+      this.loginForm.value.password)).subscribe((res: any) => {
+        if (res.success) {
+          this.route.navigate(['/home']);
+        } else {
+          this.message = "Credenciales incorrectas.";
+        }
+      })
   }
 
 }

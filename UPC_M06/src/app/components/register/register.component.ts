@@ -58,7 +58,9 @@ export class RegisterComponent implements OnInit {
       "player")).subscribe((results: any) => {
         if (results.success) {
           this.route.navigate(['/login']);
+          // console.log("registrado");
         } else {
+          // console.log("fallo");
           this.message = "Error on registering."
         }
       });

@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../model/user';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Player } from '../model/player';
-import {  map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Comment } from '../model/comment';
 
 
@@ -13,7 +13,7 @@ import { Comment } from '../model/comment';
 export class CommunicatorService {
 
   private comment = new BehaviorSubject<Comment>(new Comment(-1));
- 
+
   currentComment = this.comment.asObservable();
 
   private userSubject: BehaviorSubject<Player>;
@@ -51,26 +51,35 @@ export class CommunicatorService {
   }
 
   login(player: Player) {
-    return this.http.post<Player>("http://127.0.0.1:8000/api/login", player, { responseType: "json" }).pipe(
-      map(res => {
-        if (res) {
-          console.log(res);
-          const player: Player = Object.assign(new Player(), res);
-          localStorage.setItem('player', JSON.stringify(player));
-          this.userSubject.next(player);
-        }
-        return res;
-      })
-    );
-    // return this.http.post("http://127.0.0.1:8000/api/login",
-    // {
-    //   responseType: "json",
-    //   params: { email: player.email, password: player.password }
-    // }).pipe(
+    // return this.http.post<Player>("http://127.0.0.1:8000/api/login", player, { responseType: "json" }).pipe(
     //   map(res => {
-    //     console.log(res);
+    //     if (res) {
+    //       console.log(res);
+    //       const player: Player = Object.assign(new Player(), res);
+    //       localStorage.setItem('player', JSON.stringify(player));
+    //       this.userSubject.next(player);
+    //     }
+    //     return res;
     //   })
     // );
+    return this.http.post("http://127.0.0.1:8000/api/login", player,
+      {
+        responseType: "json",
+        // params: { "email": player.email, "password": player.password }
+      }).pipe(
+        map((res : any) => {
+          if (res.success) {
+            console.log(res);
+            const player: Player = new Player(res.user.id, res.user.nickname, res.user.avatar, res.user.email, "", res.user.role);
+            localStorage.setItem('player', JSON.stringify(player));
+            this.userSubject.next(player);
+          }
+          return res;
+        })
+      );
+
+
+
   }
 
   public usuariData(): Player | any {
@@ -78,26 +87,31 @@ export class CommunicatorService {
     return this.userSubject.value;
   }
 
-  
+
 
   getComments() {
     return this.http.get("http://localhost:3000/getComments",
       {
         responseType: "json"
       });
-   
-      // return this.http.get(" http://127.0.0.1:8000/api/comments",
-      // {
-      //   responseType: "json"
-      // });
+
+    // return this.http.get(" http://127.0.0.1:8000/api/comments",
+    // {
+    //   responseType: "json"
+    // });
   }
 
-   // Player tiene todos los campos de la tabla user
-   addUser(user: Player) {
-    return this.http.post("http://localhost:3000/addUser",
+  // Player tiene todos los campos de la tabla user
+  addUser(user: Player) {
+    // return this.http.post("http://localhost:3000/addUser",
+    //   {
+    //     responseType: "json", user,
+    //     params: { responseType: "json" }
+    //   });
+    return this.http.post("http://localhost:8000/api/register",user,
       {
-        responseType: "json", user,
-        params: { responseType: "json" }
+        responseType: "json"
+        // params: { "name": user.nickname,"nickname": user.nickname, "password": user.password, "email": user.email }
       });
   }
 
@@ -134,31 +148,31 @@ export class CommunicatorService {
 
   }
 
-   /**
-   * Service POST
-   * @param info 
-   * @returns 
-   */
-    delete(info: Object) {
-      console.log(info);
-      return this.http.delete("http://localhost:3000/delete-comment",
-        {
-          responseType: "json",
-          body: info
-        });
-    }
+  /**
+  * Service POST
+  * @param info 
+  * @returns 
+  */
+  delete(info: Object) {
+    console.log(info);
+    return this.http.delete("http://localhost:3000/delete-comment",
+      {
+        responseType: "json",
+        body: info
+      });
+  }
 
 
   /**
  * This method modifies the selected shirt with the new info.
  * @param info
  */
-   modifyComment(info: Object) {
+  modifyComment(info: Object) {
     console.log(this.comment);
     console.log(this.currentComment);
     return this.http.put("http://localhost:3000/update-comment",
-    info,
-    {responseType: "json"});
+      info,
+      { responseType: "json" });
   }
 
 }
