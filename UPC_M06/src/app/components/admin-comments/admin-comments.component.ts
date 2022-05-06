@@ -12,20 +12,24 @@ import { CommunicatorService } from 'src/app/service/communicator.service';
 export class AdminCommentsComponent implements OnInit {
   dataComments: any;
   newComment !: Comment;
-  loggedIn!: Player | null;
+  loggedIn!: Player;
   commentSelected !: Comment;
   showFormModify: Boolean = false;
-
+  p: number = 1;
+  ipp: number = 10;
   constructor(public communicatorService: CommunicatorService,
     public datepipe: DatePipe) { }
 
   ngOnInit(): void {
     this.newComment = new Comment();
     this.communicatorService.user.subscribe((result: any) => {
-      // console.log(result)
-      this.loggedIn = result;
+      // this.loggedIn = result;
+      console.log(result._id)
+      this.loggedIn = new Player(result._id, result._nickname, "", result._email, "", result._role);
+
     })
     // this.loggedIn = this.communicatorService.usuariData();
+    // console.log(this.loggedIn.id);
     this.loadComments();
   }
 
@@ -127,7 +131,6 @@ export class AdminCommentsComponent implements OnInit {
       nickname: this.loggedIn?.nickname,
       email: this.loggedIn?.email
     }
-
     this.communicatorService.addComment(info).subscribe(
       result => {
         let res = JSON.parse(JSON.stringify(result));

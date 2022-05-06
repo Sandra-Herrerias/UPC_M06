@@ -1,6 +1,10 @@
 <div class="row m-0 vh-100">
+    
     <div class="col p-0 bg-light d-flex justify-content-center align-items-center flex-column w-100">
+        
         <form [formGroup]="loginForm" class="w-75" action="#">
+            <a routerLink="/home"><img class="mx-auto pb-5" src="assets/img/hlogo.png" width="270"></a>
+
             <p class="align-self-start">¡Bienvenido de nuevo!
             </p>
             <h1 class="align-self-start">Ingrese a su cuenta
@@ -18,7 +22,7 @@
             <div class="mb-3">
                 <label  class="form-label">Contraseña</label>
                 <input type="password" id="password" formControlName="password" class="form-control"
-                    placeholder="*******" required>
+                    placeholder="*********" required>
                 <label  class="text-danger" *ngIf="loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.dirty">Password
                     requerido</label>
             </div>
@@ -31,9 +35,8 @@
     </div>
     <div class="col p-0 text-center d-flex justify-content-center align-items-center login">
         <div class="text-white">
-            <h1 class="display-1">Todavía no tienes<br> cuenta? </h1>
-            <p>Lorem Ipsum is simply dummy industry. </p>
-            <button type="button" class="btn btn-dark"><a href="/register"
+            <h1 class="display-1">¿Todavía no <br>tienes cuenta? </h1>
+            <button type="button" class="btn btn-dark"><a  routerLink="/register"
                     class="text-white text-decoration-none">¡Regístrate ahora!</a> </button>
         </div>
     </div>

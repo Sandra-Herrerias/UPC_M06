@@ -27,7 +27,7 @@ export class GuardroutesGuard implements CanActivate {
     console.log(route.data['role']);//gets role
     //Si la ruta es admin_comments y el rol es admin, me tiene que dejar pasar 
     //a la vista admin_comments en vez de la comments_feedback
-    if (user != null) {
+    if (user) {
       if (route.component == "/admin_comments" && route.data['role'] != 'admin') {
         return false;
       } else {
