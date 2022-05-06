@@ -1,12 +1,12 @@
-<div class="bg-warning">
+<div id="titulo" class="p-5">
     <div class="text-white text-center">
-        <h1 class="text-dark display-1 p-5 mb-5">CRUD Comentarios</h1>
+        <h1 class="text-dark display-1">CRUD Comentarios</h1>
     </div>
 </div>
+<br>
+<br>
 
-
-
-<div *ngIf="loggedIn && loggedIn.role !='admin'" class="container">
+<div *ngIf="loggedIn && loggedIn.role !='admin'" class="container-flex">
     <table class="table table-hover table-borderless table-striped" style="background-color: #F28627;">
         <thead style="background-color: #c22222;">
             <tr>
@@ -30,28 +30,27 @@
             </tr>
         </tbody>
     </table>
-
-    <!-- <h2 class="text-center mt-5 pt-5">Añade tu comentario</h2>
-    <div class="container">
-        <form class="row g-3">
-            <div class="col-12">
-                <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" style="height: 100px"
-                        [(ngModel)]="newComment.comment" #comment="ngModel" id="comment" name="comment"></textarea>
-                    <label for="floatingTextarea2">Comments</label>
+    <div class="bg-white">
+        <h2 class="text-center mt-5 pt-5">Añade tu comentario</h2>
+        <div class="container">
+            <form class="row g-3">
+                <div class="col-12">
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here" style="height: 100px" [(ngModel)]="newComment.comment" #comment="ngModel" id="comment" name="comment"></textarea>
+                        <label for="floatingTextarea2">Comments</label>
+                    </div>
                 </div>
-            </div>
-            <div class="col-12 text-center mb-5">
-                <button type="submit" class="btn btn-danger mt-4" (click)="addNewComment()">Añadir</button>
-            </div>
-        </form>
-    </div> -->
+                <div class="col-12 text-center mb-5">
+                    <button type="submit" class="btn btn-danger mt-4" (click)="addNewComment()">Añadir</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
 </div>
 
 
 <div *ngIf="showFormModify">
-    <app-edit-comment [comment]="commentSelected" (eventShow)="getEventShow($event)"
-        (modifiedComment)="getCommentModified($event)">
+    <app-edit-comment [comment]="commentSelected" (eventShow)="getEventShow($event)" (modifiedComment)="getCommentModified($event)">
     </app-edit-comment>
 </div>

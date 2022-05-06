@@ -22,9 +22,9 @@ body {
     background-color: #590B0B;
 }
 
-/* .bg{
-    background-color: #590B0B;
-} */
+#titulo{
+    background-color: #F28627;
+}
 
 #scroll {
     position: absolute;
