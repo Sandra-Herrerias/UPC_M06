@@ -50,10 +50,11 @@ export class CommunicatorService {
     // console.log(this.user.value);
   }
 
-  login(player: Player): Observable<Player> {
-    return this.http.post<Player>("http://localhost:3000/login", player, { responseType: "json" }).pipe(
+  login(player: Player) {
+    return this.http.post<Player>("http://127.0.0.1:8000/api/login", player, { responseType: "json" }).pipe(
       map(res => {
         if (res) {
+          console.log(res);
           const player: Player = Object.assign(new Player(), res);
           localStorage.setItem('player', JSON.stringify(player));
           this.userSubject.next(player);
@@ -61,6 +62,15 @@ export class CommunicatorService {
         return res;
       })
     );
+    // return this.http.post("http://127.0.0.1:8000/api/login",
+    // {
+    //   responseType: "json",
+    //   params: { email: player.email, password: player.password }
+    // }).pipe(
+    //   map(res => {
+    //     console.log(res);
+    //   })
+    // );
   }
 
   public usuariData(): Player | any {
@@ -71,15 +81,15 @@ export class CommunicatorService {
   
 
   getComments() {
-    // return this.http.get("http://localhost:3000/getComments",
-    //   {
-    //     responseType: "json"
-    //   });
-   
-      return this.http.get(" http://127.0.0.1:8000/api/comments",
+    return this.http.get("http://localhost:3000/getComments",
       {
         responseType: "json"
       });
+   
+      // return this.http.get(" http://127.0.0.1:8000/api/comments",
+      // {
+      //   responseType: "json"
+      // });
   }
 
    // Player tiene todos los campos de la tabla user

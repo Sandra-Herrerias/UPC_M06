@@ -37,14 +37,22 @@
                     <li class="nav-item">
                         <a class="nav-item nav-link" routerLink="/ranking_results" routerLinkActive="active">Ranking</a>
                     </li>
-                    <li class="nav-item">
+                    
+                    <li *ngIf="!loggedIn" class="nav-item">
                         <a class="nav-item nav-link" routerLink="/comments_feedback"
                             routerLinkActive="active">Comentarios</a>
                     </li>
+
+                    <li *ngIf="loggedIn && loggedIn.role == 'player'" class="nav-item">
+                        <a class="nav-item nav-link" routerLink="/comments_feedback"
+                            routerLinkActive="active">Comentarios</a>
+                    </li>
+                    
                     <li *ngIf="loggedIn && loggedIn.role == 'admin'" class="nav-item">
                         <a class="nav-item nav-link" routerLink="/admin_comments" routerLinkActive="active">CRUD
                             Comentarios</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-item nav-link" routerLink="/technologies"
                             routerLinkActive="active">Tecnologias</a>
@@ -56,7 +64,7 @@
                 </ul>
                 <form class="d-flex">
                     <button *ngIf="loggedIn == null" type="button" class="btn btn-danger">
-                        <a class="text-white text-decoration-none" href="/login">Login</a></button>
+                        <a class="text-white text-decoration-none" routerLink="/login">Login</a></button>
                     <a *ngIf="loggedIn" (click)="logout()"> <button type="button" class="btn btn-danger">
                             Logout</button></a>
                 </form>
@@ -81,15 +89,16 @@
         </div>
         <br>
         <div class="d-flex justify-content-center">
-            <a class="nav-link active text-white" href="#">Home</a>
-            <a class="nav-link active text-white" href="#">Juego</a>
-            <a class="nav-link active text-white" href="#">Sobre nosotros</a>
-            <a class="nav-link active text-white" href="#">Ranking</a>
-            <a class="nav-link active text-white" href="#">Comentarios</a>
-            <a class="nav-link active text-white" href="#">Tecnologias</a>
-            <a class="nav-link active text-white" href="#">Descargar</a>
-            <a *ngIf="!loggedIn" class="nav-link active text-white" href="#">Iniciar Sesión</a>
-            <a *ngIf="loggedIn" class="nav-link active text-white" href="#">Cerrar Sesión</a>
+            <a class="nav-link active text-white"routerLink="/welcome">Home</a>
+            <a class="nav-link active text-white" routerLink="/aboutgame">Juego</a>
+            <a class="nav-link active text-white" routerLink="/aboutus">Sobre nosotros</a>
+            <a class="nav-link active text-white" routerLink="/ranking_results">Ranking</a>
+            <a class="nav-link active text-white" routerLink="/comments_feedback">Comentarios</a>
+
+            <a class="nav-link active text-white" routerLink="/technologies">Tecnologias</a>
+            <a class="nav-link active text-white"routerLink="/download">Descargar</a>
+            <a *ngIf="!loggedIn" class="nav-link active text-white" routerLink="/login">Iniciar Sesión</a>
+            <a *ngIf="loggedIn" class="nav-link active text-white" (click)="logout()">Cerrar Sesión</a>
         </div>
 
         <div class="text-center text-muted fs-6 mt-3">
