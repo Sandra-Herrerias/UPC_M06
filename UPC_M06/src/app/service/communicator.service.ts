@@ -71,7 +71,12 @@ export class CommunicatorService {
   
 
   getComments() {
-    return this.http.get("http://localhost:3000/getComments",
+    // return this.http.get("http://localhost:3000/getComments",
+    //   {
+    //     responseType: "json"
+    //   });
+   
+      return this.http.get(" http://127.0.0.1:8000/api/comments",
       {
         responseType: "json"
       });

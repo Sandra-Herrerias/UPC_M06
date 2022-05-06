@@ -54,6 +54,7 @@ export class CommentsFeedbackComponent implements OnInit {
       result => {
         // console.log(result)
         this.dataComments = result;
+        // this.dataComments.success 
       }
     );
 
