@@ -5,25 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    <nav *ngIf="(data != '/login' && data != '/register')"
-        class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <nav *ngIf="(data != '/login' && data != '/register')" class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="assets/img/hlogo.png" alt="" height="24" class="d-inline-block align-text-top">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="navbar-collapse collapse justify-content-between align-items-center w-100"
-                id="navbarSupportedContent">
+            <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto text-md-center text-left">
                     <li class="nav-item">
                         <a class="nav-item nav-link" routerLink="/welcome" routerLinkActive="active">Home</a>
@@ -38,16 +33,14 @@
                         <a class="nav-item nav-link" routerLink="/ranking_results" routerLinkActive="active">Ranking</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-item nav-link" routerLink="/comments_feedback"
-                            routerLinkActive="active">Comentarios</a>
+                        <a class="nav-item nav-link" routerLink="/comments_feedback" routerLinkActive="active">Comentarios</a>
                     </li>
                     <li *ngIf="loggedIn && loggedIn.role == 'admin'" class="nav-item">
                         <a class="nav-item nav-link" routerLink="/admin_comments" routerLinkActive="active">CRUD
                             Comentarios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-item nav-link" routerLink="/technologies"
-                            routerLinkActive="active">Tecnologias</a>
+                        <a class="nav-item nav-link" routerLink="/technologies" routerLinkActive="active">Tecnologias</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-item nav-link" routerLink="/download" routerLinkActive="active">Descargar</a>
@@ -72,7 +65,7 @@
         <div class=" d-flex flex-column">
             <img class="mx-auto" src="assets/img/hlogo.png" width="170">
             <br>
-            <h4 *ngIf="!loggedIn" class="text-center">¿Estás listo?</h4>
+            <h4 *ngIf="!loggedIn" class="text-center">¿Estás lista?</h4>
             <br *ngIf="!loggedIn">
             <div *ngIf="!loggedIn" class="mx-auto">
                 <button type="button" class="btn btn-danger"><a class="text-white text-decoration-none"
