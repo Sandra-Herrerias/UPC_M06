@@ -1,62 +1,66 @@
-
-
-.card-text{
+.card-text {
   color: black;
 }
 
-.card{
-  width: 16rem;
-  border-radius: 300;
-  border-color: black;
-  
+.card {
+  /* width: 248px; */
+  height: 498px;
+  /* border-radius: 300; */
+  border: 0;
+
 }
 
-.card > img{
+/* .card>img {
   height: auto;
   width: 314.5;
-}
-
-/* .card{
-  float: none;
 } */
 
-p{
-    color: white;
+/* .card>img {
+  height: 200px;
+} */
+
+
+/* .cara>img {
+  width: 256px;
+  height: 576px;
+} */
+.cara>img {
+  width: 248px;
+  height: 498px;
 }
 
-.card-body > a {
+p {
+  color: white;
+}
+
+.card-body>a {
   color: #590B0B;
-
-  /* float: right; */
+  margin-left: 3px;
 }
-
-
-
-
 
 /* efecto de flip card*/
 
 .carta-box {
-    width: 256px;
-    height: 576px;
-    position: relative;
-    perspective: 1000px;
-  }
-  
-  .carta-box:hover .carta {
-      transform: rotateY(180deg);
-  }
-  
-  .carta {
-    transform-style: preserve-3d;
-    transition: all 0.5s linear;
-  }
-  
-  .cara {
-    position: absolute;
-    backface-visibility: hidden;
-  }
-  
-  .cara.detras {
-    transform: rotateY(180deg);
-  }
+  width: 248px;
+  height: 576px;
+  position: relative;
+  perspective: 1000px;
+}
+
+.carta-box:hover .carta {
+  transform: rotateY(180deg);
+}
+
+.carta {
+  transform-style: preserve-3d;
+  transition: all 0.5s linear;
+}
+
+.cara {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.cara.detras {
+  transform: rotateY(180deg);
+}
