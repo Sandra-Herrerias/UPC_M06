@@ -1,4 +1,4 @@
-<div class="row m-0 vh-100">
+<!-- <div class="row m-0 vh-100">
     <div class="col p-0 text-center d-flex justify-content-center align-items-center login">
         <div class="text-white">
             <h1 class="display-1">Ya tienes<br> una cuenta
@@ -32,6 +32,78 @@
                 <input type="password" class="form-control" name="passwd" [(ngModel)]="password" #passwd="ngModel" placeholder="Contraseña*" required>
             </div>
             <button type="button" class="btn btn-danger mt-3" (click)="register()">Registrarse</button>
+        </form>
+    </div>
+</div> -->
+<div class="row m-0 vh-100">
+    <div class="col p-0 text-center d-flex justify-content-center align-items-center login">
+        <div class="text-white">
+            <h1 class="display-1">Ya tienes<br> una cuenta
+            </h1>
+            <p>Lorem Ipsum is simply dummy industry. </p>
+            <button type="button" class="btn btn-dark">
+                <a href="/login" class="text-white text-decoration-none">¡Inicia sesión ahora!</a>
+            </button>
+        </div>
+    </div>
+    <div class="col p-0 bg-light d-flex justify-content-center align-items-center flex-column w-100">
+        <form class="w-75" [formGroup]="registerForm" action="#">
+            <p class="align-self-start">Hola kitten!</p>
+            <h1 class="align-self-start">Crear una cuenta
+            </h1>
+            <br>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Nombre
+                </label>
+                <input type="text" value="Juan@gmail.com" class="form-control" id="realname" placeholder="Jordi"
+                    formControlName="realname" required>
+                <label class="text-danger"
+                    *ngIf="registerForm.get('realname')?.errors?.['required'] && registerForm.get('realname')?.dirty">
+                    Nombre requerido</label>
+                <!-- <label class="text-danger"
+                    *ngIf="loginForm.get('email')?.errors?.['email'] && loginForm.get('email')?.dirty">Email no
+                    válido</label> -->
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Nickname
+                </label>
+                <input type="text" class="form-control" id="nickname" placeholder="J0rd1 Roch4"
+                    formControlName="nickname" required>
+                <label class="text-danger"
+                    *ngIf="registerForm.get('nickname')?.errors?.['required'] && registerForm.get('nickname')?.dirty">
+                    Nickname requerido</label>
+                <label class="text-danger"
+                    *ngIf="registerForm.get('nickname')?.errors?.['minlength'] && registerForm.get('nickname')?.dirty">
+                    Minimo 8 carácteres</label>
+
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email
+                </label>
+                <input type="email" class="form-control" id="email" placeholder="example@gmail.com" formControlName="email"
+                    required>
+                <label class="text-danger"
+                    *ngIf="registerForm.get('email')?.errors?.['email'] && registerForm.get('email')?.dirty">Email no
+                    válido</label>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Password
+                </label>
+                <input type="password" class="form-control" id="passwd" placeholder="******" formControlName="passwd"
+                    required>
+                <label class="text-danger"
+                    *ngIf="registerForm.get('passwd')?.errors?.['minlength'] && registerForm.get('passwd')?.dirty">
+                    Minimo 8 carácteres</label>
+                <label class="text-danger"
+                    *ngIf="registerForm.get('passwd')?.errors?.['maxlength'] && registerForm.get('passwd')?.dirty">
+                    Máximo 14 carácteres</label>
+            </div>
+            <label class="text-danger">
+            {{message}}
+            </label>
+            <br>
+            <button type="button" [disabled]="registerForm.invalid" class="btn btn-danger mt-3"
+                (click)="register()">Registrarse</button>
         </form>
     </div>
 </div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/model/user';
+import { Router } from '@angular/router';
+import { Player } from 'src/app/model/player';
 import { CommunicatorService } from 'src/app/service/communicator.service';
+import { Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -9,11 +11,37 @@ import { CommunicatorService } from 'src/app/service/communicator.service';
 })
 export class RegisterComponent implements OnInit {
 
-  username: string = "";
-  email: string = "";
-  password: string = "";
+  message: string = "";
 
-  constructor(private communicatorService: CommunicatorService) {
+  public registerForm = this.formBuilder.group({
+    realname: [
+      '',
+      [
+        Validators.required,
+      ]
+    ],
+    nickname: [
+      '',
+      [
+        Validators.minLength(8),
+        Validators.required,
+      ]
+    ],
+    email: [
+      '',
+      [
+        Validators.email,
+      ]
+    ],
+    passwd: [
+      '',
+      [
+        Validators.minLength(8),
+        Validators.maxLength(14),
+      ]
+    ]
+  });
+  constructor(private formBuilder: FormBuilder,private communicatorService: CommunicatorService, private route: Router) {
     
    }
 
@@ -24,6 +52,15 @@ export class RegisterComponent implements OnInit {
     // this.communicatorService.addUser(new User(this.username, this.email, this.password)).subscribe(result => {
     //   // this.comentarios.push(result);
     // })
-    console.log(new User(this.username, this.email, this.password));
+    this.communicatorService.addUser(new Player(0,
+      this.registerForm.value.nickname, "",
+      this.registerForm.value.email, this.registerForm.value.passwd,
+      "player")).subscribe((results: any) => {
+        if (results.success) {
+          this.route.navigate(['/login']);
+        } else {
+          this.message = "Error on registering."
+        }
+      });
   }
 }
