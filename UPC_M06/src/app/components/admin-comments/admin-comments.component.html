@@ -31,13 +31,12 @@
         </tbody>
     </table>
 
-    <!-- <h2 class="text-center mt-5 pt-5">Añade tu comentario</h2>
+    <h2 class="text-center mt-5 pt-5">Añade tu comentario</h2>
     <div class="container">
         <form class="row g-3">
             <div class="col-12">
                 <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" style="height: 100px"
-                        [(ngModel)]="newComment.comment" #comment="ngModel" id="comment" name="comment"></textarea>
+                    <textarea class="form-control" placeholder="Leave a comment here" style="height: 100px" [(ngModel)]="newComment.comment" #comment="ngModel" id="comment" name="comment"></textarea>
                     <label for="floatingTextarea2">Comments</label>
                 </div>
             </div>
@@ -45,13 +44,12 @@
                 <button type="submit" class="btn btn-danger mt-4" (click)="addNewComment()">Añadir</button>
             </div>
         </form>
-    </div> -->
+    </div>
 
 </div>
 
 
 <div *ngIf="showFormModify">
-    <app-edit-comment [comment]="commentSelected" (eventShow)="getEventShow($event)"
-        (modifiedComment)="getCommentModified($event)">
+    <app-edit-comment [comment]="commentSelected" (eventShow)="getEventShow($event)" (modifiedComment)="getCommentModified($event)">
     </app-edit-comment>
 </div>
