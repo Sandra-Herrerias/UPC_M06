@@ -68,62 +68,28 @@
     <!--Charge each component enrouted-->
     <router-outlet></router-outlet>
 
-    <!-- <nav *ngIf="(data != '/login' && data != '/register')" class="navbar-dark mt-auto bg-dark text-white">
-        <br>
-        <br>
-        <div class=" d-flex flex-column">
-            <img class="mx-auto" src="assets/img/hlogo.png" width="170">
-            <br>
-            <h4 *ngIf="!loggedIn" class="text-center">¿Estás lista?</h4>
-            <br *ngIf="!loggedIn">
-            <div *ngIf="!loggedIn" class="mx-auto">
-                <button type="button" class="btn btn-danger"><a class="text-white text-decoration-none"
-                        href="/register">Registrarte</a></button>
-            </div>
-        </div>
-        <br>
-        <div class="d-flex justify-content-center">
-            <a class="nav-link active text-white"routerLink="/welcome">Home</a>
-            <a class="nav-link active text-white" routerLink="/aboutgame">Juego</a>
-            <a class="nav-link active text-white" routerLink="/aboutus">Sobre nosotros</a>
-            <a class="nav-link active text-white" routerLink="/ranking_results">Ranking</a>
-            <a class="nav-link active text-white" routerLink="/comments_feedback">Comentarios</a>
-
-            <a class="nav-link active text-white" routerLink="/technologies">Tecnologias</a>
-            <a class="nav-link active text-white"routerLink="/download">Descargar</a>
-            <a *ngIf="!loggedIn" class="nav-link active text-white" routerLink="/login">Iniciar Sesión</a>
-            <a *ngIf="loggedIn" class="nav-link active text-white" (click)="logout()">Cerrar Sesión</a>
-        </div>
-
-        <div class="text-center text-muted fs-6 mt-3">
-            Copyright © 2022. Exploding Kittens. All rights reserved.
-        </div>
-        <br>
-        <br>
-    </nav> -->
-
     <div class="container-flex" *ngIf="(data != '/login' && data != '/register')">
 
         <footer class="text-center text-lg-start text-white" style="background-color: #212529">
 
-            <div class=" d-flex flex-column pt-3 d-block d-sm-none ">
-                <img class="mx-auto" src="assets/img/hlogo.png" width="170">
+            <div class=" d-flex flex-column py-3">
+                <img class="mx-auto d-block d-sm-block d-md-none" src="assets/img/hlogo.png" width="170">
                 <br>
                 <h4 *ngIf="!loggedIn" class="text-center">¿Estás lista?</h4>
                 <br>
                 <div *ngIf="!loggedIn" class="mx-auto">
-                    <button type="button" class="btn btn-danger">Register</button>
+                    <button type="button" class="btn btn-danger" routerLink="/login">Register</button>
                 </div>
             </div>
 
             <section class="p-3">
-                <div class="container text-center text-md-start mt-5">
+                <div class="container text-center text-md-start">
                     <div class="row mt-3">
 
                         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                             <h6 class="text-uppercase fw-bold">Exploding Kittens</h6>
                             <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                                style="width: 60px; background-color: #c22222; height: 2px" />
+                                style="width: 60px; background-color: #F28627; height: 2px" />
                             <p>
                                 Exploding Kittens es un juego de cartas rápido y divertido en el
                                 que tienes que asegurar tu supervivencia ante los temibles ¡gatos explosivos!
@@ -132,7 +98,7 @@
                         <div class="col-md-2 mx-auto mb-4">
                             <h6 class="text-uppercase fw-bold">Enlaces útiles</h6>
                             <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                                style="width: 60px; background-color: #c22222; height: 2px" />
+                                style="width: 60px; background-color: #F28627; height: 2px" />
                             <p>
                                 <a href="/home" class="text-white">Home</a>
                             </p>
@@ -159,7 +125,7 @@
                         <div class="col-md-3 mx-auto mb-md-0 mb-4">
                             <h6 class="text-uppercase fw-bold">Contacto</h6>
                             <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                                style="width: 60px; background-color: #c22222; height: 2px" />
+                                style="width: 60px; background-color: #F28627; height: 2px" />
                             <p><i class="bi bi-house-door-fill"></i> c/ Sant Pius X, núm 8. 08901 - L'Hospitalet de
                                 LLobregat.</p>
                             <p><i><img src="assets/img/Envelope-icon.svg" alt="" height="12px"></i> info@example.com</p>
