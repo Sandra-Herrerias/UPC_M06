@@ -102,17 +102,17 @@
         <br>
     </nav> -->
 
-    <div class="container-flex">
+    <div class="container-flex" *ngIf="(data != '/login' && data != '/register')">
 
         <footer class="text-center text-lg-start text-white" style="background-color: #212529">
 
             <div class=" d-flex flex-column pt-3 d-block d-sm-none ">
                 <img class="mx-auto" src="assets/img/hlogo.png" width="170">
                 <br>
-                <h4 class="text-center">Are you ready?</h4>
+                <h4 *ngIf="!loggedIn" class="text-center">¿Estás lista?</h4>
                 <br>
-                <div class="mx-auto">
-                    <button type="button" class="btn btn-danger">Login</button>
+                <div *ngIf="!loggedIn" class="mx-auto">
+                    <button type="button" class="btn btn-danger">Register</button>
                 </div>
             </div>
 
