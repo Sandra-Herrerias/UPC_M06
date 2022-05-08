@@ -1,7 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     // console.log(window.location.pathname)
-    if (window.location.pathname == '/~DAWUPC2201/upc-m06/home' || window.location.pathname == '/~DAWUPC2201/upc-m06/') {
+    if (window.location.pathname == '/~DAWUPC2201/upc-m07/public/upc-m06/home' || window.location.pathname == '/~DAWUPC2201/upc-m07/public/upc-m06/') {
         document.addEventListener("mousemove", function (e) {
             var width = window.innerWidth,
                 height = window.innerHeight,
@@ -16,12 +16,12 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     }
     
-    if (window.location.pathname == '/~DAWUPC2201/upc-m06/ranking_results'){
-        gsap.to('#img-titulo', {
-            duration: 2.5,
-            ease: "power2.out",
-            x: 300
-        });
-    }
+    // if (window.location.pathname == '/~DAWUPC2201/upc-m07/public/upc-m06/ranking_results'){
+    //     gsap.to('#img-titulo', {
+    //         duration: 2.5,
+    //         ease: "power2.out",
+    //         x: 300
+    //     });
+    // }
    
 });
