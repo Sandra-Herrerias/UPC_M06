@@ -1,12 +1,3 @@
-#tipos-cartas>.col>a {
-   font-family: sans-serif;
-   color: white;
-}
-
-#tipos-cartas>.col>a:hover {
-   color: #404040;
-   cursor: pointer;
-}
 
 #img-titulo {
    position: absolute;
@@ -19,9 +10,7 @@
    }
 }
 
-p {
-   color: white;
-}
+
 
 #cartas>.col>img {
    height: auto;

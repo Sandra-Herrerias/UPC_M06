@@ -54,7 +54,7 @@ export class CommentsFeedbackComponent implements OnInit {
     // this.loggedIn = this.communicatorService.usuariData();
 
     this.communicatorService.getComments().subscribe(
-      (result : any) => {
+      (result: any) => {
         // console.log(result)
         // this.dataComments = result;
         if (result.success) {
@@ -79,20 +79,24 @@ export class CommentsFeedbackComponent implements OnInit {
       email: this.loggedIn?.email
     }
 
+    if (this.newComment.comment) {
+      this.communicatorService.addComment(info).subscribe(
+        (result: any) => {
+          // console.log(result);
+          // let res = JSON.parse(JSON.stringify(result));
 
-    this.communicatorService.addComment(info).subscribe(
-      (result:any) => {
-        // console.log(result);
-        // let res = JSON.parse(JSON.stringify(result));
+          if (result.success) {//success message
+            this.dataComments.push(info);
+            alert("Comentario insertado correctamente");
+            this.newComment = new Comment();//blank textfield 
+          } else {//error message
+            alert("El comentario no se ha podido añadir");
+          }
 
-        if (result.success) {//success message
-          this.dataComments.push(info);
-          alert("Comentario insertado correctamente");
-          this.newComment = new Comment();//blank textfield 
-        } else {//error message
-          alert("El comentario no se ha podido añadir");
         }
-      }
-    );
+      );
+    } else {
+      alert("El comentario no puede estar vacío");
+    }
   }
 }

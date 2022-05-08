@@ -52,7 +52,7 @@ export class CommunicatorService {
   }
 
   login(player: Player) {
-    // return this.http.post<Player>("http://127.0.0.1:8000/api/login", player, { responseType: "json" }).pipe(
+    // return this.http.post<Player>("http://127.0.0.1:3000/login", player, { responseType: "json" }).pipe(
     //   map(res => {
     //     if (res) {
     //       console.log(res);
@@ -173,7 +173,6 @@ export class CommunicatorService {
     return this.http.post("https://apps.proven.cat/~DAWUPC2201/upc-m07/public/api/store",
       info,
       { responseType: "json" });
-
   }
 
 
@@ -215,7 +214,7 @@ export class CommunicatorService {
     //   info,
     //   { responseType: "json" });
     // http://127.0.0.1:8000/update petición a laravel api local
-      return this.http.post("https://apps.proven.cat/~DAWUPC2201/upc-m07/public/api/update",
+    return this.http.post("https://apps.proven.cat/~DAWUPC2201/upc-m07/public/api/update",
       info,
       { responseType: "json" });
   }

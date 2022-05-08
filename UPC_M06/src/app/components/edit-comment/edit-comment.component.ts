@@ -55,18 +55,22 @@ export class EditCommentComponent implements OnInit {
       // email: this.newComment.email,
     }
     // console.log(info);
-
-    this.communicatorService.modifyComment(info).subscribe(
-      (result: any) => {
-        // let res = JSON.parse(JSON.stringify(result));
-        console.log(result);
-        if (result.success) { //success message
-          alert("Comentario modificado correctamente");
-        } else {//error message
-          alert("El comentario no se ha podido modificar");
+    if (this.newComment.comment) {
+      this.communicatorService.modifyComment(info).subscribe(
+        (result: any) => {
+          // let res = JSON.parse(JSON.stringify(result));
+          console.log(result);
+          if (result.success) { //success message
+            alert("Comentario modificado correctamente");
+          } else {//error message
+            alert("El comentario no se ha podido modificar");
+          }
         }
-      }
-    );
+      );
+    }else {//error message
+      alert("El comentario no puede estar vacío");
+    }
+
 
     //Emits father that modify form will be hidden
     this.eventShow.emit(false);

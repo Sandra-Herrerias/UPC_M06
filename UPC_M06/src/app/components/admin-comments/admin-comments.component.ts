@@ -145,29 +145,34 @@ export class AdminCommentsComponent implements OnInit {
       nickname: this.loggedIn?.nickname,
       email: this.loggedIn?.email
     }
-    this.communicatorService.addComment(info).subscribe(
-      (result: any) => {
-        // let res = JSON.parse(JSON.stringify(result));
+    if (this.newComment.comment) {
+      this.communicatorService.addComment(info).subscribe(
+        (result: any) => {
+          // let res = JSON.parse(JSON.stringify(result));
 
-        // if (res.affectedRows == 1) {//success message
-        //   this.loadComments();
-        //   alert("Comentario insertado correctamente");
-        //   this.newComment = new Comment();//blank textfield
-        // } else {//error message
-        //   alert("El comentario no se ha podido añadir");
-        // }
+          // if (res.affectedRows == 1) {//success message
+          //   this.loadComments();
+          //   alert("Comentario insertado correctamente");
+          //   this.newComment = new Comment();//blank textfield
+          // } else {//error message
+          //   alert("El comentario no se ha podido añadir");
+          // }
 
-        if (result.success) {//success message
-          this.loadComments();
-          this.dataComments.push(info);
-          alert("Comentario insertado correctamente");
-          this.newComment = new Comment();//blank textfield 
-        } else {//error message
-          alert("El comentario no se ha podido añadir");
+          if (result.success) {//success message
+            this.loadComments();
+            this.dataComments.push(info);
+            alert("Comentario insertado correctamente");
+            this.newComment = new Comment();//blank textfield 
+          } else {//error message
+            alert("El comentario no se ha podido añadir");
+          }
+
         }
+      );
+    } else {//error message
+      alert("El comentario no puede estar vacío");
+    }
 
-      }
-    );
   }
 
 }
