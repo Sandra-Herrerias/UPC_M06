@@ -29,7 +29,7 @@ app.get('/getComments', function (req, res) {
     connection.query('SELECT comments.id as id, comments.comment as comment, users.nickname as nickname, users.email as email, users.avatar as avatar FROM users INNER JOIN comments ON users.id=comments.id_player ORDER BY comments.created_at DESC;',
         function (error, results, field) {
             if (error) throw error;
-            console.log(results);
+            // console.log(results);
             res.send(JSON.stringify(results));
 
         });
