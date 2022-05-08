@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const mysql = require('mysql');
 const cors = require('cors');
+const e = require('express');
 
 app.use(cors({
     origin: '*'
@@ -126,11 +127,13 @@ app.post('/findByNickname', function (req, res) {
 
 app.post('/addUser', function (req, res) {
     var connection = getConnection();
-    connection.query('INSERT INTO users (name,email,password,role, created_at) values (?,?,?,?,?)',
-        [req.body.user._nickname, req.body.user._email, req.body.user._password, req.body.user._role, 'NOW()'],
+    console.log(req.body.user);
+    connection.query('INSERT INTO users (name,nickname,email,password,role, created_at) values (?,?,?,?,?,?)',
+        [req.body.user._nickname, req.body.user._nickname, req.body.user._email, req.body.user._password, req.body.user._role, 'NOW()'],
         function (error, results, field) {
             try {
                 if (error) {
+                    console.log(error);
                     throw error;
                 };
                 res.json({ success: true });
