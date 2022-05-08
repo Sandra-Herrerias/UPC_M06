@@ -3,27 +3,10 @@
 }
 
 .card {
-  /* width: 248px; */
   height: 498px;
-  /* border-radius: 300; */
   border: 0;
-
 }
 
-/* .card>img {
-  height: auto;
-  width: 314.5;
-} */
-
-/* .card>img {
-  height: 200px;
-} */
-
-
-/* .cara>img {
-  width: 256px;
-  height: 576px;
-} */
 .cara>img {
   width: 248px;
   height: 498px;

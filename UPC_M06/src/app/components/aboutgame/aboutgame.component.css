@@ -1,5 +1,4 @@
 #tipos-cartas>.col>a {
-   font-family: sans-serif;
    color: white;
 }
 
@@ -13,14 +12,15 @@
    bottom: -53px;
 }
 
-@media (max-width: 575.98px) {
+@media (max-width: 575px) {
    #img-titulo {
-      height: 110px;
+      height: 115px;
    }
 }
-
-p {
-   color: white;
+@media (max-width: 467px) {
+   #img-titulo {
+      display:none;
+   }
 }
 
 #cartas>.col>img {

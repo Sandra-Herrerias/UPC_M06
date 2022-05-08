@@ -1,22 +1,15 @@
-<div id="titulo" class="container-flex p-5">
-  <div class="row">
-    <div class="col">
-      <h1 class="text-center text-dark display-1">SOBRE NOSOTROS</h1>
-    </div>
-  </div>
+<div class="container p-5 text-center">
+  <h1 class="text-white display-2">CONOCE A LOS DESAROLLADORES DEL JUEGO</h1>
+  <p>Somos un grupo de alumnos de segundo de Ingeniería en Sistemas de Telecomunicaciones y Telemática en la Universidad
+    Politécnica de Cataluña. Para aprender sobre sistemas operativos y el uso de servidores, hemos creado este juego el
+    cual requiere conexión
+    con el servidor de la UPC.</p>
 </div>
 
-<div id="como_jugar" class="container p-5 text-white text-center">
-  <h2 class="text-center  display-4">CONOCE A LOS DESAROLLADORES DEL JUEGO</h2>
-  <p class=" fs-5">Somos un grupo de alumnos de segundo de Ingeniería en Sistemas de Telecomunicaciones y
-    Telemática
-    en la Universidad Politécnica de Cataluña. Para aprender sobre sistemas operativos y el uso de
-    servidores, hemos creado este juego el cual requiere conexión con el servidor de la UPC.</p>
-</div>
-
-<div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-    <div class="col">
+<!-- Cards juego Desktop -->
+<div class="container d-none d-sm-block">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+    <div class="col d-flex align-items-center justify-content-center">
       <div class="carta-box">
         <div class="carta">
           <div class="cara">
@@ -27,8 +20,8 @@
               <img src="assets/img/fotoAna.jpeg" class="card-img-top img" alt="...">
               <div class="card-body">
                 <h5 class="card-title">Ana Gozálvez</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas lectus
-                  quis nunc fringilla.</p>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas lectus quis
+                  nunc fringilla.</p>
                 <a href="https://github.com/anagozalvez" target="_blank" class="bi bi-github"></a>
                 <a href="https://www.instagram.com/ana_gc02/" target="_blank" class="bi bi-instagram"></a>
               </div>
@@ -37,7 +30,7 @@
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col d-flex align-items-center justify-content-center">
       <div class="carta-box">
         <div class="carta">
           <div class="cara">
@@ -48,8 +41,8 @@
               <img src="assets/img/Ines.png" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">Ines Masllorens</h5>
-                <p class="card-text">Soy de Girona pero vivo en Gavá por los
-                  estudios. Me gusta leer y hacer deporte.</p>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas lectus quis
+                  nunc fringilla.</p>
                 <a href="https://github.com/InesMasllorens" target="_blank" class="bi bi-github"></a>
                 <a href="https://www.instagram.com/ines_masllorens/" target="_blank" class="bi bi-instagram"></a>
               </div>
@@ -58,7 +51,7 @@
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col d-flex align-items-center justify-content-center">
       <div class="carta-box">
         <div class="carta">
           <div class="cara">
@@ -69,8 +62,8 @@
               <img src="assets/img/fotoLidia.jpeg" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">Lidia Chicano</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas lectus
-                  quis nunc fringilla.</p>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas lectus quis
+                  nunc fringilla.</p>
                 <a href="https://github.com/lidiachicano" target="_blank" class="bi bi-github"></a>
                 <a href="https://www.instagram.com/_lidiachicano_/" target="_blank" class="bi bi-instagram"></a>
               </div>
@@ -79,7 +72,7 @@
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col d-flex align-items-center justify-content-center">
       <div class="carta-box">
         <div class="carta">
           <div class="cara">
@@ -90,8 +83,8 @@
               <img src="assets/img/fotoMario.jpg" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">Mario Cerdà</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas lectus
-                  quis nunc fringilla.</p>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas lectus quis
+                  nunc fringilla.</p>
                 <a href="https://github.com/marioRelajao" target="_blank" class="bi bi-github"></a>
                 <a href="https://www.instagram.com/mario15197/" target="_blank" class="bi bi-instagram"></a>
               </div>
@@ -102,75 +95,219 @@
     </div>
   </div>
 </div>
+<!-- Fin Cards juego Desktop -->
 
+<!-- Cards juego mobile -->
+<div class="container d-block d-sm-none d-flex align-items-center justify-content-center">
 
+  <div id="carouselJuego" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselJuego" data-bs-slide-to="0" class="active" aria-current="true"
+        aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselJuego" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselJuego" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselJuego" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="carta-box">
+          <div class="carta">
+            <div class="cara">
+              <img src="assets/img/carta-posterior.jpeg" width="256" height="430
+                  ">
+            </div>
+            <div class="cara detras">
+              <div class="card">
+                <img src="assets/img/fotoAna.jpeg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Ana Gozálvez</h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas lectus
+                    quis nunc fringilla.</p>
+                  <a href="https://github.com/InesMasllorens" target="_blank" class="bi bi-github"></a>
+                  <a href="https://www.instagram.com/ines_masllorens/" target="_blank" class="bi bi-instagram"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="carta-box">
+          <div class="carta">
+            <div class="cara">
+              <img src="assets/img/carta-posterior.jpeg" width="256" height="430">
+            </div>
+            <div class="cara detras">
+              <div class="card">
+                <img src="assets/img/Ines.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Ines Masllorens</h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas lectus
+                    quis nunc fringilla.</p>
+                  <a href="https://github.com/InesMasllorens" target="_blank" class="bi bi-github"></a>
+                  <a href="https://www.instagram.com/ines_masllorens/" target="_blank" class="bi bi-instagram"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="carta-box">
+          <div class="carta">
+            <div class="cara">
+              <img src="assets/img/carta-posterior.jpeg" width="256" height="430">
+            </div>
+            <div class="cara detras">
+              <div class="card">
+                <img src="assets/img/fotoLidia.jpeg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Lidia Chicano</h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas lectus
+                    quis nunc fringilla.</p>
+                  <a href="https://github.com/lidiachicano" target="_blank" class="bi bi-github"></a>
+                  <a href="https://www.instagram.com/ines_masllorens/" target="_blank" class="bi bi-instagram"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="carta-box">
+          <div class="carta">
+            <div class="cara">
+              <img src="assets/img/carta-posterior.jpeg" width="256" height="430">
+            </div>
+            <div class="cara detras">
+              <div class="card">
+                <img src="assets/img/fotoMario.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Mario Cerdà</h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas lectus
+                    quis nunc fringilla.</p>
+                  <a href="https://github.com/marioRelajao" target="_blank" class="bi bi-github"></a>
+                  <a href="https://www.instagram.com/ines_masllorens/" target="_blank" class="bi bi-instagram"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<div id="como_jugar" class="container p-5 text-white text-center">
-  <h2 class="text-center  display-4">CONOCE A LOS DESAROLLADORES WEBO</h2>
-  <p class=" fs-5">Somos un equipo de alumnos de segundo en<strong>Técnico Superior en Desarrollo de
-    Aplicaciones Web</strong>
-  en el Instituto Provençana.
-  Nuestra parte en el proyecto ha sido desarrollar la aplicación web del juego.</p>
+  </div>
+
+  <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselJuego" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselJuego" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button> -->
+
 </div>
 
-<div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mb-5 justify-content-center">
-    <div class="col">
-      <div class="carta-box">
-        <div class="carta">
-          <div class="cara">
-            <img src="assets/img/carta-posterior.jpeg">
-          </div>
-          <div class="cara detras">
-            <div class="card">
-              <img src="assets/img/fotoIncognito.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Alexander Millones</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas lectus
-                  quis nunc fringilla.</p>
-                <a href="https://github.com/AlexMillonesRojas" target="_blank" class="bi bi-github"></a>
-                <a href="https://www.instagram.com/alexmillonesr/" target="_blank" class="bi bi-instagram"></a>
+<!-- Fin Cards juego mobile -->
+
+
+
+<div class="container p-5">
+  <h1 class="text-center text-white display-2">CONOCE A LOS DESAROLLADORES WEB</h1>
+  <p class="text-center">Somos un grupo de alumnos de segundo de grado superior de desarollo de aplicaciones web en el
+    Instituto Provençana.</p>
+</div>
+
+<<<<<<< HEAD <div id="como_jugar" class="container p-5 text-white text-center">
+  <h2 class="text-center  display-4">CONOCE A LOS DESAROLLADORES DEL JUEGO</h2>
+  <p class=" fs-5">Somos un grupo de alumnos de segundo de Ingeniería en Sistemas de Telecomunicaciones y
+    Telemática
+    en la Universidad Politécnica de Cataluña. Para aprender sobre sistemas operativos y el uso de
+    servidores, hemos creado este juego el cual requiere conexión con el servidor de la UPC.</p>
+  </div>
+
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+      <div class="col">
+        <div class="carta-box">
+          <div class="carta">
+            <div class="cara">
+              <img src="assets/img/carta-posterior.jpeg">
+            </div>
+            <div class="cara detras">
+              <div class="card">
+                <img src="assets/img/fotoAna.jpeg" class="card-img-top img" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Ana Gozálvez</h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas lectus
+                    quis nunc fringilla.</p>
+                  <a href="https://github.com/anagozalvez" target="_blank" class="bi bi-github"></a>
+                  <a href="https://www.instagram.com/ana_gc02/" target="_blank" class="bi bi-instagram"></a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col">
-      <div class="carta-box">
-        <div class="carta">
-          <div class="cara">
-            <img src="assets/img/carta-posterior.jpeg">
-          </div>
-          <div class="cara detras">
-            <div class="card">
-              <img src="assets/img/jordi.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Jordi Rocha</h5>
-                <p class="card-text">Me considero muy motivado, muy proactivo, con capacidad para adaptarme a diferentes
-                  entornos y aprendiendo nuevas tecnologías. </p>
-                <a href="https://github.com/jordirocha" target="_blank" class="bi bi-github"></a>
-                <a href="https://www.instagram.com/" target="_blank" class="bi bi-instagram"></a>
+      <div class="col">
+        <div class="carta-box">
+          <div class="carta">
+            <div class="cara">
+              <img src="assets/img/carta-posterior.jpeg">
+            </div>
+            <div class="cara detras">
+              <div class="card">
+                <img src="assets/img/Ines.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Ines Masllorens</h5>
+                  <p class="card-text">Soy de Girona pero vivo en Gavá por los
+                    estudios. Me gusta leer y hacer deporte.</p>
+                  <a href="https://github.com/InesMasllorens" target="_blank" class="bi bi-github"></a>
+                  <a href="https://www.instagram.com/ines_masllorens/" target="_blank" class="bi bi-instagram"></a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col">
-      <div class="carta-box">
-        <div class="carta">
-          <div class="cara">
-            <img src="assets/img/carta-posterior.jpeg">
+      <div class="col">
+        <div class="carta-box">
+          <div class="carta">
+            <div class="cara">
+              <img src="assets/img/carta-posterior.jpeg">
+            </div>
+            <div class="cara detras">
+              <div class="card">
+                <img src="assets/img/fotoLidia.jpeg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Lidia Chicano</h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas lectus
+                    quis nunc fringilla.</p>
+                  <a href="https://github.com/lidiachicano" target="_blank" class="bi bi-github"></a>
+                  <a href="https://www.instagram.com/_lidiachicano_/" target="_blank" class="bi bi-instagram"></a>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="cara detras">
-            <div class="card">
-              <img src="assets/img/Sandra.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Sandra Herrerias</h5>
-                <p class="card-text">Estudiante DAW, INS Provençana.</p>
-                <a href="https://github.com/Sandra-Herrerias" target="_blank" class="bi bi-github"></a>
-                <a href="https://www.instagram.com/" target="_blank" class="bi bi-instagram"></a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="carta-box">
+          <div class="carta">
+            <div class="cara">
+              <img src="assets/img/carta-posterior.jpeg">
+            </div>
+            <div class="cara detras">
+              <div class="card">
+                <img src="assets/img/fotoMario.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Mario Cerdà</h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas lectus
+                    quis nunc fringilla.</p>
+                  <a href="https://github.com/marioRelajao" target="_blank" class="bi bi-github"></a>
+                  <a href="https://www.instagram.com/mario15197/" target="_blank" class="bi bi-instagram"></a>
+                </div>
               </div>
             </div>
           </div>
@@ -178,4 +315,170 @@
       </div>
     </div>
   </div>
-</div>
+
+
+
+  <div id="como_jugar" class="container p-5 text-white text-center">
+    <h2 class="text-center  display-4">CONOCE A LOS DESAROLLADORES WEBO</h2>
+    <p class=" fs-5">Somos un equipo de alumnos de segundo en<strong>Técnico Superior en Desarrollo de
+        Aplicaciones Web</strong>
+      en el Instituto Provençana.
+      Nuestra parte en el proyecto ha sido desarrollar la aplicación web del juego.</p>
+
+    <!-- Cards web desktop -->
+    <div class="container d-none d-sm-block">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mb-5">
+        <div class="col d-flex align-items-center justify-content-center">
+          <div class="carta-box">
+            <div class="carta">
+              <div class="cara">
+                <img src="assets/img/carta-posterior.jpeg">
+              </div>
+              <div class="cara detras">
+                <div class="card">
+                  <img src="assets/img/fotoAlex.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Alexander Millones</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas lectus
+                      quis nunc fringilla.</p>
+                    <a href="https://github.com/AlexMillonesRojas" target="_blank" class="bi bi-github"></a>
+                    <a href="https://www.instagram.com/alexmillonesr/" target="_blank" class="bi bi-instagram"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col d-flex align-items-center justify-content-center">
+          <div class="carta-box">
+            <div class="carta">
+              <div class="cara">
+                <img src="assets/img/carta-posterior.jpeg">
+              </div>
+              <div class="cara detras">
+                <div class="card">
+                  <img src="assets/img/fotoIncognito.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Jordi Rocha</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas lectus
+                      quis nunc fringilla.</p>
+                    <a href="https://github.com/jordirocha" target="_blank" class="bi bi-github"></a>
+                    <a href="https://www.instagram.com/" target="_blank" class="bi bi-instagram"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col d-flex align-items-center justify-content-center">
+          <div class="carta-box">
+            <div class="carta">
+              <div class="cara">
+                <img src="assets/img/carta-posterior.jpeg">
+              </div>
+              <div class="cara detras">
+                <div class="card">
+                  <img src="assets/img/Sandra.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Sandra Herrerias</h5>
+                    <p class="card-text">Estudiante DAW, INS Provençana.</p>
+                    <a href="https://github.com/Sandra-Herrerias" target="_blank" class="bi bi-github"></a>
+                    <a href="https://www.instagram.com/" target="_blank" class="bi bi-instagram"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fin Cards web desktop -->
+
+    <!-- Cards web mobile -->
+    <div class="container d-block d-sm-none d-flex align-items-center justify-content-center">
+
+      <div id="carouselWeb" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselWeb" data-bs-slide-to="0" class="active" aria-current="true"
+            aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselWeb" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselWeb" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="carta-box">
+              <div class="carta">
+                <div class="cara">
+                  <img src="assets/img/carta-posterior.jpeg">
+                </div>
+                <div class="cara detras">
+                  <div class="card">
+                    <img src="assets/img/fotoAlex.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Alexander Millones</h5>
+                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas
+                        lectus quis nunc fringilla.</p>
+                      <a href="https://github.com/AlexMillonesRojas" target="_blank" class="bi bi-github"></a>
+                      <a href="https://www.instagram.com/alexmillonesr/" target="_blank" class="bi bi-instagram"></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="carta-box">
+              <div class="carta">
+                <div class="cara">
+                  <img src="assets/img/carta-posterior.jpeg">
+                </div>
+                <div class="cara detras">
+                  <div class="card">
+                    <img src="assets/img/fotoIncognito.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Jordi Rocha</h5>
+                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas
+                        lectus quis nunc fringilla.</p>
+                      <a href="https://github.com/jordirocha" target="_blank" class="bi bi-github"></a>
+                      <a href="https://www.instagram.com/" target="_blank" class="bi bi-instagram"></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="carta-box">
+              <div class="carta">
+                <div class="cara">
+                  <img src="assets/img/carta-posterior.jpeg">
+                </div>
+                <div class="cara detras">
+                  <div class="card">
+                    <img src="assets/img/Sandra.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Sandra Herrerias</h5>
+                      <p class="card-text">Estudiante DAW, INS Provençana.</p>
+                      <a href="https://github.com/Sandra-Herrerias" target="_blank" class="bi bi-github"></a>
+                      <a href="https://www.instagram.com/" target="_blank" class="bi bi-instagram"></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselWeb" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselWeb" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button> -->
+
+    </div>
+    <!-- Fin Cards web mobile -->
