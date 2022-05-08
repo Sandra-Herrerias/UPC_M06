@@ -1,7 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     // console.log(window.location.pathname)
-    if (window.location.pathname == '/~DAWUPC2201/upc-m06/home' || window.location.pathname == '/~DAWUPC2201/upc-m06/') {
+    if (window.location.pathname == '/~DAWUPC2201/upc-m07/public/upc-m06/' || window.location.pathname == '/~DAWUPC2201/upc-m07/public/upc-m06/home') {
         document.addEventListener("mousemove", function (e) {
             var width = window.innerWidth,
                 height = window.innerHeight,
