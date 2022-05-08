@@ -54,9 +54,12 @@ export class CommentsFeedbackComponent implements OnInit {
     // this.loggedIn = this.communicatorService.usuariData();
 
     this.communicatorService.getComments().subscribe(
-      result => {
+      (result : any) => {
         // console.log(result)
-        this.dataComments = result;
+        // this.dataComments = result;
+        if (result.success) {
+          this.dataComments = result.comments;
+        }
         // this.dataComments.success 
       }
     );
@@ -66,7 +69,7 @@ export class CommentsFeedbackComponent implements OnInit {
 
 
   addNewComment() {
-    console.log(this.loggedIn);
+    // console.log(this.loggedIn);
     let info = {
       comment: this.newComment.comment,
       id_player: this.loggedIn?.id,
@@ -78,10 +81,11 @@ export class CommentsFeedbackComponent implements OnInit {
 
 
     this.communicatorService.addComment(info).subscribe(
-      result => {
-        let res = JSON.parse(JSON.stringify(result));
+      (result:any) => {
+        // console.log(result);
+        // let res = JSON.parse(JSON.stringify(result));
 
-        if (res.affectedRows == 1) {//success message
+        if (result.success) {//success message
           this.dataComments.push(info);
           alert("Comentario insertado correctamente");
           this.newComment = new Comment();//blank textfield 

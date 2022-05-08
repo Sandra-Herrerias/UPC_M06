@@ -10,12 +10,17 @@ export class RankingResultsComponent implements OnInit {
 
   dataRanking: any;
   p: number = 1;
-  ipp: number = 5;
+  ipp: number = 7;
   constructor(private communicatorService: CommunicatorService) { }
 
   ngOnInit(): void {
     this.communicatorService.getRanking().subscribe(
-      result => { this.dataRanking = result; console.log(this.dataRanking) }
+      (result: any) => {
+        if (result.success) {
+          this.dataRanking = result.data;
+        }
+        // console.log(this.dataRanking)
+      }
     );
   }
 

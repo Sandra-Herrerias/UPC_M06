@@ -46,20 +46,21 @@ export class EditCommentComponent implements OnInit {
     this.modifiedComment.emit(this.newComment);
 
     let info = {
-      id: this.newComment.id,
-      comment: this.newComment.comment,
-      id_player: this.newComment.id_player,
-      created_at: this.newComment.created_at,
-      updated_at: new Date(),
-      nickname: this.newComment.nickname,
-      email: this.newComment.email,
+      "id": this.newComment.id,
+      "comment": this.newComment.comment
+      // id_player: this.newComment.id_player,
+      // created_at: this.newComment.created_at,
+      // updated_at: new Date(),
+      // nickname: this.newComment.nickname,
+      // email: this.newComment.email,
     }
+    // console.log(info);
 
     this.communicatorService.modifyComment(info).subscribe(
-      result => {
-        let res = JSON.parse(JSON.stringify(result));
-
-        if (res.affectedRows == 1) {//success message
+      (result: any) => {
+        // let res = JSON.parse(JSON.stringify(result));
+        console.log(result);
+        if (result.success) { //success message
           alert("Comentario modificado correctamente");
         } else {//error message
           alert("El comentario no se ha podido modificar");

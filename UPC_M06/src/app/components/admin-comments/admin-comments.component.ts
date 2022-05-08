@@ -34,9 +34,14 @@ export class AdminCommentsComponent implements OnInit {
   }
 
   loadComments() {
-    this.communicatorService.getComments().subscribe(
-      result => {
-        this.dataComments = result;
+    this.communicatorService.getCommentsForAdmin().subscribe(
+      (result: any) => {
+        // console.log(result)
+        // this.dataComments = result;
+        if (result.success) {
+          this.dataComments = result.comments;
+        }
+        // this.dataComments.success 
       }
     );
   }
@@ -52,13 +57,19 @@ export class AdminCommentsComponent implements OnInit {
         id: commentSelected.id,
       }
       this.communicatorService.delete(info).subscribe(
-        result => {
-          let res = JSON.parse(JSON.stringify(result));
+        (result: any) => {
+          // let res = JSON.parse(JSON.stringify(result));
 
-          if (res.affectedRows == 1) {//success message
+          // if (res.affectedRows == 1) {//success message
+          //   this.deleteComment(commentSelected);
+          //   alert("Comentario eliminado correctamente");
+          // } else {//error message
+          //   alert("El comentario no se ha podido eliminar");
+          // }
+          if (result.success) {
             this.deleteComment(commentSelected);
             alert("Comentario eliminado correctamente");
-          } else {//error message
+          } else {
             alert("El comentario no se ha podido eliminar");
           }
         }
@@ -96,8 +107,11 @@ export class AdminCommentsComponent implements OnInit {
   * This method sends the comment with the new information to the method that modifies the comment in the service.
   */
   sendInfoToModifyComment($e: any): void {
-    this.communicatorService.modifyComment($e);
-    this.showFormModify = false;
+    this.communicatorService.modifyComment($e).subscribe((result: any) => {
+      if (result.status) {
+        this.showFormModify = false;
+      }
+    });
   }
 
   /**
@@ -132,16 +146,26 @@ export class AdminCommentsComponent implements OnInit {
       email: this.loggedIn?.email
     }
     this.communicatorService.addComment(info).subscribe(
-      result => {
-        let res = JSON.parse(JSON.stringify(result));
+      (result: any) => {
+        // let res = JSON.parse(JSON.stringify(result));
 
-        if (res.affectedRows == 1) {//success message
+        // if (res.affectedRows == 1) {//success message
+        //   this.loadComments();
+        //   alert("Comentario insertado correctamente");
+        //   this.newComment = new Comment();//blank textfield
+        // } else {//error message
+        //   alert("El comentario no se ha podido añadir");
+        // }
+
+        if (result.success) {//success message
           this.loadComments();
+          this.dataComments.push(info);
           alert("Comentario insertado correctamente");
-          this.newComment = new Comment();//blank textfield
+          this.newComment = new Comment();//blank textfield 
         } else {//error message
           alert("El comentario no se ha podido añadir");
         }
+
       }
     );
   }
