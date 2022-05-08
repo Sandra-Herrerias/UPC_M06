@@ -24,9 +24,9 @@ export class AdminCommentsComponent implements OnInit {
     this.newComment = new Comment();
     this.communicatorService.user.subscribe((result: any) => {
       // this.loggedIn = result;
-      console.log(result._id)
+      // console.log(result._id)
       this.loggedIn = new Player(result._id, result._nickname, "", result._email, "", result._role);
-
+      console.log(this.loggedIn)
     })
     // this.loggedIn = this.communicatorService.usuariData();
     // console.log(this.loggedIn.id);
@@ -131,19 +131,24 @@ export class AdminCommentsComponent implements OnInit {
       nickname: this.loggedIn?.nickname,
       email: this.loggedIn?.email
     }
-    this.communicatorService.addComment(info).subscribe(
-      result => {
-        let res = JSON.parse(JSON.stringify(result));
+    if (this.newComment.comment) {
+      this.communicatorService.addComment(info).subscribe(
+        result => {
+          let res = JSON.parse(JSON.stringify(result));
 
-        if (res.affectedRows == 1) {//success message
-          this.loadComments();
-          alert("Comentario insertado correctamente");
-          this.newComment = new Comment();//blank textfield
-        } else {//error message
-          alert("El comentario no se ha podido añadir");
+          if (res.affectedRows == 1) {//success message
+            this.loadComments();
+            alert("Comentario insertado correctamente");
+            this.newComment = new Comment();//blank textfield
+          } else {//error message
+            alert("El comentario no se ha podido añadir");
+          }
         }
-      }
-    );
+      );
+    } else {//error message
+      alert("El comentario no puede estar vacío");
+    }
+
   }
 
 }

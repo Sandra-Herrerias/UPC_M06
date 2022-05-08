@@ -18,7 +18,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let item of dataComments | paginate: {itemsPerPage: ipp, currentPage: p} index as i" [attr.data-index]="i">
+            <tr *ngFor="let item of dataComments | paginate: {itemsPerPage: ipp, currentPage: p} index as i"
+                [attr.data-index]="i">
                 <td>{{item.nickname}}</td>
                 <td>{{item.email}}</td>
                 <td>{{item.comment}}</td>
@@ -43,12 +44,13 @@
         <form class="row g-3">
             <div class="col-12">
                 <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" style="height: 100px" [(ngModel)]="newComment.comment" #comment="ngModel" id="comment" name="comment"></textarea>
+                    <textarea class="form-control" placeholder="Leave a comment here" style="height: 100px"
+                        [(ngModel)]="newComment.comment" #comment="ngModel" id="comment" name="comment"></textarea>
                     <label for="floatingTextarea2">Comments</label>
                 </div>
             </div>
             <div class="col-12 text-center mb-5">
-                <button type="submit" class="btn btn-danger mt-4" (click)="addNewComment()">Añadir</button>
+                <button type="submit" class="btn btn-warning mt-4" (click)="addNewComment()">Añadir</button>
             </div>
         </form>
     </div>
@@ -56,6 +58,7 @@
 
 
 <div *ngIf="showFormModify">
-    <app-edit-comment [comment]="commentSelected" (eventShow)="getEventShow($event)" (modifiedComment)="getCommentModified($event)">
+    <app-edit-comment [comment]="commentSelected" (eventShow)="getEventShow($event)"
+        (modifiedComment)="getCommentModified($event)">
     </app-edit-comment>
 </div>

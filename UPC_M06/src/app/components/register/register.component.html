@@ -1,43 +1,6 @@
-<!-- <div class="row m-0 vh-100">
-    <div class="col p-0 text-center d-flex justify-content-center align-items-center login">
-        <div class="text-white">
-            <h1 class="display-1">Ya tienes<br> una cuenta
-            </h1>
-            <p>Lorem Ipsum is simply dummy industry. </p>
-            <button type="button" class="btn btn-dark">
-                <a href="/login" class="text-white text-decoration-none">¡Inicia sesión ahora!</a>
-            </button>
-        </div>
-    </div>
-    <div class="col p-0 bg-light d-flex justify-content-center align-items-center flex-column w-100">
-        <form class="w-75" action="#">
-            <p class="align-self-start">Hola kitten!</p>
-            <h1 class="align-self-start">Crear una cuenta
-            </h1>
-            <br>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Nombre de usuario
-                </label>
-                <input type="text" class="form-control" name="user" [(ngModel)]="username" #user="ngModel"  placeholder="Usuario*" required>
-                <div *ngIf="user.invalid && user.dirty" class="invalid-feedback">
-                    Name Type is required
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput2" class="form-label">Email</label>
-                <input type="email" class="form-control" name="emailUser" [(ngModel)]="email" #emailUser="ngModel" placeholder="Email*" required>
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput2" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" name="passwd" [(ngModel)]="password" #passwd="ngModel" placeholder="Contraseña*" required>
-            </div>
-            <button type="button" class="btn btn-danger mt-3" (click)="register()">Registrarse</button>
-        </form>
-    </div>
-</div> -->
-<div class="row m-0 vh-100">
-    <div class="col p-0 text-center d-flex justify-content-center align-items-center login">
-        <div class="text-white">
+<div class="row vh-100">
+    <div class="col d-none d-md-flex login">
+        <div class="text-center align-self-center mx-auto text-white">
             <h1 class="display-1">¿Ya tienes<br> una cuenta?
             </h1>
             <button type="button" class="btn btn-dark">
@@ -45,7 +8,7 @@
             </button>
         </div>
     </div>
-    <div class="col p-0 bg-light d-flex justify-content-center align-items-center flex-column w-100">
+    <div class="col bg-light d-flex flex-column justify-content-center align-items-center">
         <form class="w-75" [formGroup]="registerForm" action="#">
             <a routerLink="/home"><img class="mx-auto pb-5" src="assets/img/hlogo.png" width="270"></a>
             <p class="align-self-start">Hola kitten!</p>
@@ -56,19 +19,17 @@
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Nombre
                 </label>
-                <input type="text" value="Juan@gmail.com" class="form-control" id="realname" placeholder="Jordi"
+                <input type="text" value="Juan@gmail.com" class="form-control" id="realname" placeholder="kitten"
                     formControlName="realname" required>
                 <label class="text-danger"
                     *ngIf="registerForm.get('realname')?.errors?.['required'] && registerForm.get('realname')?.dirty">
                     Nombre requerido</label>
-                <!-- <label class="text-danger"
-                    *ngIf="loginForm.get('email')?.errors?.['email'] && loginForm.get('email')?.dirty">Email no
-                    válido</label> -->
+
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Nickname
                 </label>
-                <input type="text" class="form-control" id="nickname" placeholder="J0rd1 Roch4"
+                <input type="text" class="form-control" id="nickname" placeholder="k1tten"
                     formControlName="nickname" required>
                 <label class="text-danger"
                     *ngIf="registerForm.get('nickname')?.errors?.['required'] && registerForm.get('nickname')?.dirty">
