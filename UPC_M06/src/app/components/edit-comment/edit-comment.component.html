@@ -9,14 +9,12 @@
 
                 <div class="form-group">
                     <label for="colorLabel" class="control-label">Modificar comentario*</label><br>
-                    <textarea class="form-control" type="text" [(ngModel)]="newComment.comment" #commentText="ngModel"
-                        id="commentText" name="commentText" required></textarea>
+                    <textarea class="form-control" type="text" [(ngModel)]="newComment.comment" #commentText="ngModel" id="commentText" name="commentText" required></textarea>
                 </div><br>
             </div>
 
             <div class="col-12 text-center mb-5">
-                <button class="btn btn-warning" type="button" [disabled]="form1.invalid"
-                    (click)="emitInfoModifyComments()">Modificar</button>
+                <button class="btn btn-warning" type="button" [disabled]="form1.invalid" (click)="emitInfoModifyComments()">Modificar</button>
             </div>
         </form>
     </div>
